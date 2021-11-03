@@ -11,17 +11,17 @@ RUN apk update && apk add \
 
 #Run docker (install during the boot process?)
 #voir pour maria_db
-RUN docker-php-ext-install pdo_mysql
+#RUN docker-php-ext-install pdo_mysql
 
 #add a group and user 
-RUN add-group -g 1000 -S www && \
-    adduser -u 1000 -S www -G www
+#[pool www] 'user' directive is ignored when FPM is not running as root
+#RUN addgroup -g 1000 -S www && adduser -u 1000 -S www -G www
 
 #define the user
-USER www
+#USER www
 
 #change the owner
-COPY --chown=www:www . /var/www
+#COPY --chown=www:www . /var/www
 
 #en PHP le default por est 9000
 EXPOSE 9000

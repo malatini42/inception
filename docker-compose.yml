@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+    app:
+        build:
+            context: . 
+            dockerfile: Dockerfile 
+        image: inception 
+        container_name: app
+        restart: unless-stopped
+        volumes:
+        #Kind of like a symbolic link
+         - ./:/var/www
+
+    webserver:
+        build:
+            context: .
+            dockerfile: Dockerfile_Nginx
+        image: nginx
+        container_name: webserver
+        restart: unless-stopped
+        ports:
+        #Default nginx port 80 (our side: our container side)
+         - "8080:80"
+        #apres les : il doit y avoir un chemin absolu
+        volumes:
+         - ./:/var/www
+         - ./nginx/:/etc/nginx/conf.d/
+        depends_on:
+            - app
