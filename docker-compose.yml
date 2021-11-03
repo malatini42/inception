@@ -1,98 +1,137 @@
-version: "3"
+#pour lancer 
+#docker-compose up -d --build
+version: "3.3"
 #on pourrait preciser la version 3.3, attention c est dependant de la version de dockers
 
 #Dans chaque bloc de servcice on a un conteneur declare/decrit
 #3 grandes etapes - les services, les networks, les volumes
-services:
-    #tests pour php
-    app:
-        build:
-            context: . 
-            dockerfile: Dockerfile 
-        image: inception 
-        container_name: app
-        restart: unless-stopped
-        volumes:
-        #Kind of like a symbolic link
-         - ./:/var/www
 
-    #Changer pour mettre mariadb
-    #Si on est au sein du meme reseau les ports vont etre accessible depuis les differents services
-    db:
-        container_name: mysql
-        image: mysql:5.7
+#LAMP Stack
+services:
+    #On doit modifier la config de nginx pour pouvoir acceder a notre /var/www/html
+    nginx:
+        #base OS Alpine linux, perfect for containers
+        image: nginx:stable-alpine
+        ports:
+            #Visiting the 80 port on the localhost should display what is on the container
+            - 80:80
+        #Les volumes nous permettront d'avoir acces a nos fichiers wordpress
+        #Les volumes se comportent comme des liens symboliques entre notre machine et le container
+        #delegated est une option qui nous permet de speed up le time sur les system macOS
         volumes:
-         - wp_db:/var/lib/mysql/
-        #voir quelle option est la meilleures
-        restart: always
-        #variables d'environnement
+            - ./wordpress:/var/www/data/html:delegated
+            #En faisant ca on remplace le fichier nginx par defaut
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    mysql:
+        image: mysql:latest
         environment:
-            #La on va definir les informations pour le root user
-            #nous permet d eviter de lancer un scripts
-            MYSQL_ROOT_PASSWORD: somewordpress
-            #par defaut wordpress attend une base de donnee nommee wordpress
+            #MYSQL expects these env variables
             MYSQL_DATABASE: wordpress
             MYSQL_USER: wordpress
             MYSQL_PASSWORD: wordpress
-        #Les reseaux vont permettre de faire communiquer les services
-        #Ils appartiennent a un seul et unique reseau pour l instant
-        networks:
-            - wp
-
-    wordpress:
-        #depends on signifie que ce service ne se lance que si le service dont il depend est lance
-        depends_on:
-            - db 
-        container_name: wordpress
-        image: wordpress:latest
-        #wordpress stocke tout un tas de fichier qui considerera comme nos "statiques"
-        #On monte un volume dans la localisation suivie du :
-        volumes:
-            - wp_statics:/var/www/html/
-        #pour le wordpress specifiquement on va rediriger le port 80 vers le port 8000
-        ports:
-            - 8000:80
-        #variables d'environnement
-        environnement:
-            WORDPRESS_DB_HOST: dd:3306
-            WORDPRESS_DB_USER: wordpress
-            WORDPRESS_DB_PASSWORD: wordpress
-        networks:
-            - wp
-
-    webserver:
+            MYSQL_ROOT_PASSWORD: wordpress
+    #PHP a besoin d'avoir les memes volume information que nginx
+    php:
+        #image: php:7.4-fpm-alpine
         build:
+            #the directory to look for the dockerfile in
             context: .
-            dockerfile: Dockerfile_Nginx
-        image: nginx
-        container_name: webserver
-        restart: unless-stopped
-        ports:
-        #Default nginx port 80 (our side: our container side)
-         - "8080:80"
-        #apres les : il doit y avoir un chemin absolu
+            dockerfile: php.Dockerfile
         volumes:
-         - ./:/var/www
-         - ./nginx/:/etc/nginx/conf.d/
-        depends_on:
-            - app
+            - ./wordpress:/var/www/html:delegated
+        links:
+            - mysql
 
-network:
-    wp:
+    #Changer pour mettre mariadb
+    #Si on est au sein du meme reseau les ports vont etre accessible depuis les differents services
+    # db:
+    #     container_name: mysql
+    #     image: mysql:5.7
+    #     volumes:
+    #      - wp_db:/var/lib/mysql/
+    #     #voir quelle option est la meilleures
+    #     restart: always
+    #     #variables d'environnement
+    #     environment:
+    #         #La on va definir les informations pour le root user
+    #         #nous permet d eviter de lancer un scripts
+    #         MYSQL_ROOT_PASSWORD: somewordpress
+    #         #par defaut wordpress attend une base de donnee nommee wordpress
+    #         MYSQL_DATABASE: wordpress
+    #         MYSQL_USER: wordpress
+    #         MYSQL_PASSWORD: wordpress
+    #     #Les reseaux vont permettre de faire communiquer les services
+    #     #Ils appartiennent a un seul et unique reseau pour l instant
+    #     networks:
+    #         - wp
 
-#declaration des volumes -> c'est Docker qui va gerer les droits des repertoires
-#Grace a docker-compose
-volumes:
-    wp_db:
-        driver: local
-        driver_opts:
-            o: bind
-            type: none
-            #Localisation sur la machine 
-            device: /srv/wordpress/db
-    wp_statics:
-        driver: local
-        driver_opts:
-            o: bind
-            type: none
-            device: /srv/wordpress/statics 
+    # wordpress:
+    #     #depends on signifie que ce service ne se lance que si le service dont il depend est lance
+    #     depends_on:
+    #         - db 
+    #     container_name: wordpress
+    #     image: wordpress:latest
+    #     #wordpress stocke tout un tas de fichier qui considerera comme nos "statiques"
+    #     #On monte un volume dans la localisation suivie du :
+    #     volumes:
+    #         - wp_statics:/var/www/html/
+    #     #pour le wordpress specifiquement on va rediriger le port 80 vers le port 8000
+    #     ports:
+    #         - 8000:80
+    #     #variables d'environnement
+    #     environnement:
+    #         WORDPRESS_DB_HOST: dd:3306
+    #         WORDPRESS_DB_USER: wordpress
+    #         WORDPRESS_DB_PASSWORD: wordpress
+    #     networks:
+    #         - wp
+
+
+    # webserver:
+    #     build:
+    #         context: .
+    #         dockerfile: Dockerfile_Nginx
+    #     image: nginx
+    #     container_name: webserver
+    #     restart: unless-stopped
+    #     ports:
+    #     #Default nginx port 80 (our side: our container side)
+    #      - "8080:80"
+    #     #apres les : il doit y avoir un chemin absolu
+    #     volumes:
+    #      - ./:/var/www
+    #      - ./nginx/:/etc/nginx/conf.d/
+    #     depends_on:
+    #         - app
+
+        #tests pour php
+    # app:
+    #     build:
+    #         context: . 
+    #         dockerfile: Dockerfile 
+    #     image: inception 
+    #     container_name: app
+    #     restart: unless-stopped
+    #     volumes:
+    #     #Kind of like a symbolic link
+    #      - ./:/var/www
+
+# network:
+#     wp:
+
+# #declaration des volumes -> c'est Docker qui va gerer les droits des repertoires
+# #Grace a docker-compose
+# volumes:
+#     wp_db:
+#         driver: local
+#         driver_opts:
+#             o: bind
+#             type: none
+#             #Localisation sur la machine 
+#             device: /srv/wordpress/db
+#     wp_statics:
+#         driver: local
+#         driver_opts:
+#             o: bind
+#             type: none
+#             device: /srv/wordpress/statics 
