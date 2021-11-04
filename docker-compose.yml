@@ -1,6 +1,6 @@
 #pour lancer 
 #docker-compose up -d --build
-version: "3.3"
+version: "3"
 #on pourrait preciser la version 3.3, attention c est dependant de la version de dockers
 
 #Dans chaque bloc de servcice on a un conteneur declare/decrit
@@ -23,24 +23,57 @@ services:
             #En faisant ca on remplace le fichier nginx par defaut
             - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     mysql:
-        image: mysql:latest
+        image: mariadb
+        #mounts the host machine path /data/mysql in the container path /var/lib/mysql
+        #enables all our DB files to be stored in the host machine instead of the container. 
+        #we need to prepare this directory for usage by our container
+        #in the MariaDB container, the /var/lib/mysqk is owned by the user mysql.
+        #The uid of this user in the container is 999. ! It is not the same in the host machine. 
+        #The following commands delete any existing user with the name mysql and create a new user with the uid 999. 
+        #sudo userdel mysql
+        #sudo useradd -u 999 mysql
+        volumes:
+            - data/mysql:/var/lib/mysql
         environment:
             #MYSQL expects these env variables
-            MYSQL_DATABASE: wordpress
-            MYSQL_USER: wordpress
-            MYSQL_PASSWORD: wordpress
-            MYSQL_ROOT_PASSWORD: wordpress
+            MYSQL_DATABASE: db_name
+            MYSQL_USER: user_name
+            MYSQL_PASSWORD: user_pass
+            MYSQL_ROOT_PASSWORD: mysql_root_pass
+        restart: always
     #PHP a besoin d'avoir les memes volume information que nginx
-    php:
-        #image: php:7.4-fpm-alpine
-        build:
-            #the directory to look for the dockerfile in
-            context: .
-            dockerfile: php.Dockerfile
+    #on veut un contenir UNIQUE wordpres/php et pas deux containers
+
+        
+    wordpress:
+        image: wordpress:php7.3-fpm-alpine
         volumes:
-            - ./wordpress:/var/www/html:delegated
+            - /data/html:/var/www/html
+        #services are started and stopped in the dependency order
+        depends_on:
+            - mysql
+        #The environmennt variable from Wordpress MUST match with the MYSQL ones. 
+        environment:
+            WORDPRESS_DB_HOST: mysql
+            MYSQL_ROOT_PASSWORD: mysql_root_pass
+            WORDPRESS_DB_NAME: db_name
+            WORDPRESS_DB_USER: user_name
+            WORDPRESS_DB_PASSWORD: user_pass
+            WORDPRESS_TABLE_PREFIX: wp_
+        #Enables wordpress to 
         links:
             - mysql
+        restart: always
+    # php:
+    #     #image: php:7.4-fpm-alpine
+    #     build:
+    #         #the directory to look for the dockerfile in
+    #         context: .
+    #         dockerfile: php.Dockerfile
+    #     volumes:
+    #         - ./wordpress:/var/www/html:delegated
+    #     links:
+    #         - mysql
 
     #Changer pour mettre mariadb
     #Si on est au sein du meme reseau les ports vont etre accessible depuis les differents services

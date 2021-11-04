@@ -1,0 +1,12 @@
+sudo userdel mysql
+//Ajouter l'option f si ca ne fonctionne toujours pas 
+sudo useradd -u 999 mysql
+//potentiellement devoir ajouter sur la vm aussi
+sudo userdel -f vboxadd
+
+//On a besoin de creer des utilisateurs sur la host machine 
+//et de definir les owners
+//Donc je ne vois pas comment on peut se faire corriger sur les vm d autre personne
+sudo mkdir -p /data/mysql
+sudo chown -R mysql:mysql /data/mysql
+
