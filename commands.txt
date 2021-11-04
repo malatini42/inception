@@ -1,4 +1,5 @@
 sudo userdel mysql
+//Gestion des user pour mysql / mariadb 
 //Ajouter l'option f si ca ne fonctionne toujours pas 
 sudo useradd -u 999 mysql
 //potentiellement devoir ajouter sur la vm aussi
@@ -10,3 +11,18 @@ sudo userdel -f vboxadd
 sudo mkdir -p /data/mysql
 sudo chown -R mysql:mysql /data/mysql
 
+
+//Gestion des user pour wordpress
+sudo userdel www-data
+sudo useradd -u 82 www-data 
+
+//Now, set the owner of this directory /data/html in the host machine
+sudo mkdir -p /data/html
+sudo chown -R www-data:www-data /data/html
+
+#choice of the paths in Volumes
+sudo tar -jcvf data.tar.bz2 /data
+
+#How to upgrade 
+sudo docker-compose down --rmi all
+sudo docker-compose up -d 
