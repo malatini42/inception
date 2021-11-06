@@ -1,0 +1,3 @@
+NAME	=	inception
+
+all:	$(NAME)
