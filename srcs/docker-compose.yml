@@ -8,6 +8,7 @@ version: "3.8"
 #Pour rappel nous travaillons LEMP Stack
 
 #Attention l'indentation est tres important dans un fichier yaml
+#les tab conviennent ? ou il va falloir tout mettre avec des espaces ?
 
 #Definir les networks et volumes avant les services ne devrait pas avoir de difference. 
 
@@ -17,7 +18,7 @@ version: "3.8"
 #determiner quels sont les services qui y ont acces
 networks:
     inception_network:
-        name: inception
+        name: inception_network
 
 #https://docs.docker.com/storage/volumes/
 #https://www.it-swarm-fr.com/fr/docker/docker-compose.yml-syntaxe-des-volumes-nommes/806987524/
@@ -40,7 +41,6 @@ volumes:
                     device: /home/malatini/data/mysql
                     o: bind
 
-
 #Nos containers/services
 #Pour les services, l'ordre a un sens, mais on peut aussi ajouter la directive
 #depends_on pour verifier qu'un service soit bien up avant un autre 
@@ -48,37 +48,62 @@ volumes:
 #meme si les variables d'environnement sont dans le .env il faut quand meme 
 #proceder a l'"interpolation" de celles ci".
 services:
-        mariadb:  
-            container_name: mariadb_inception
-            build: ./mariadb
+        mariadb:
+            container_name: mariadb
+            #build va indiquer ou trouver l'image a builder
+            build: ./requirements/mariadb
+            environnement:
+             - MYSQL_DATABASE=${MYSQL_DATABASE}
+             - MYSQL_USER=${MYSQL_USER}
+             - MYSQL_PASSWORD={MYSQL_PASSWORD}
+             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
             volumes:
-                    - mariadb:/var/lib/mysql
+            #Attention a bien mapper avec un volumes qui a ete defini plus haut 
+            #via la directive volumes
+             - db_data:/var/lib/mysql
             networks:
-                    - localhost
-            image: mariadb
+             - inception_network
+            #on a pas le droit d'utiliser le tag "latest" donc on va specifier le notre
+            #pour permettre de le "figer"
+            #specifie le nom et la version de l'image
+            image: mariadb:inception
+            #On map le port de la machine hote sur le port du service
+            ports:
+             - "3306:3306"
             restart: always
         wordpress:
+            #Nous avons besoin que la base de donnees soit prete avant que wordpress puisse etre lance
             depends_on:
                 - mariadb
-            container_name: wordpress_inception
-            build: ./wordpress
-            image: wordpress
+            #Wordpress aurait besoin de se connecter a la base de donnees
+            #et d'interagir avec elle, il nous faut donc les variables d'environnements egalement dans ce service
+            environnement:
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD={MYSQL_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            #Il est demande dans le sujet que les containers portent les memes noms que les services
+            container_name: wordpress
+            build: ./requirements/wordpress
+            image: wordpress:inception
             volumes:
-                - wordpress:/var/www/wordpress
+                - wordpress_data:/var/www/html/wordpress
             networks:
-                - localhost
+                - inception_network
+            ports:
+             - "9000:9000"
             restart: always
         nginx:
             depends_on:
                 - wordpress
-            container_name: nginx_inception
-            build: ./nginx
-            image: nginx
-            #Only accessible port as requested
+            container_name: nginx
+            build: ./requirements/nginx
+            image: nginx:inception
+            #Only accessible port (from the outside, even outside the computer host)
             ports:
                 - "443:443"
             volumes:
-                - wordpress:/var/www/wordpress
+                - wordpress_data:/var/www/html/wordpress
             networks:
-                - localhost
+                - inception_network
             restart: always
