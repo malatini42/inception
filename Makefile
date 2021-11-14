@@ -28,12 +28,12 @@ list_volumes:
 		docker volume ls
 
 #A checker
-clean:
-		downs
-		docker stop `docker ps -qa`
-		docker rm `docker ps -qa`
-		docker rmi -f `docker images -qa`
-		docker network rm `docker network ls -q`
+#clean:
+#		downs
+#		docker stop `docker ps -qa`
+#		docker rm `docker ps -qa`
+#		docker rmi -f `docker images -qa`
+#		docker network rm `docker network ls -q`
 
 #voir s il faut vraiment creer et supprimer les volumes ou si on peut les laissers
 
