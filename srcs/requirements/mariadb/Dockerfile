@@ -1,9 +1,6 @@
 #Il nous est demande de build nos container soit sur Alpine Linux "avant derniere version stable", soit debian buster
-#Alpine est plus leger donc le choix d'alpine parait judicieux
 
-#En date du 6 novembre l'avant derniere version stale est la 3.13
-#https://alpinelinux.org/releases/
-FROM alpine:3.13
+FROM debian:buster
 
 #DOCUMENTATION OFFICIELLE MARIADB 
 #https://mariadb.com/kb/en/creating-a-custom-docker-image/
@@ -12,19 +9,22 @@ FROM alpine:3.13
 LABEL version="1.0"
 LABEL description="MariaDB Server"
 
-#trouve dans la doc mariadb, va verifier si le server est toujours alive
-HEALTHCHECK --start-period=5m \
-  CMD mariadb -e 'SELECT @@datadir;' || exit 1
-
-#APK - Alpine Linux Package Manager
-
+# Installation des packages necessaires
 #Bonnes pratiques, toujours update et upgrade le package manager avant d'installer des dependances
-RUN apk update && apk upgrade
+RUN apt-get update -y && apt-get upgrade -y
 
 #Installation des packages mariadb
-RUN apk add mariadb mariadbclient
-#Installation de vim pour pouvoir modifier les fichiers depuis le container 
-RUN apt add vim 
+RUN apt-get install mariadb-server mariadb-client
+
+#Purge and recreate /var/lib/mysql users and ownership
+RUN rm -rf /var/lib/apt/lists *
+
+#Mysqld handles MySQL installation
+#https://dev.mysql.com/doc/refman/8.0/en/mysqld.html
+RUN mkdir -p /var/run/mysqld \
+    chown mysql /var/run/mysqld \
+#ensure /var/run/mysqld is readable, writable and executable
+    chmod 777 /var/run/mysqld
 
 #Install de dumb-init -> A minimal init system for Linux containers
 #Will be useful to handle signals (PID1 - Signal handling in Docker)
@@ -32,11 +32,10 @@ RUN apt add vim
 #https://petermalmgren.com/signal-handling-docker/
 
 #Si on run un container "wrapped in a shell script", le scrip shell aura le pid 1 et 
-#il sra plus possibe de passer des signaux au process enfant (aka le container).
+#il sera plus possible de passer des signaux au process enfant (aka le container).
 #Dans ce cas SIGTERM serait ignoré.
 
-#Pour eviter ce probleme, on peut utiliser exec dans notre script shell.
-#On peut aussi utiliser un "init like process" comme dumb-init, qui possede des capacites de 
+#On peut utiliser un "init like process" comme dumb-init, qui possede des capacites de 
 #signal "proxying".
 
 RUN wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64 && \
@@ -45,33 +44,20 @@ RUN wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/downlo
 #Creaion des dossiers et sous dossiers pour accueillir les fichiers de configuration
     mkdir -p /run/mysql/ /var/lib/mysql && \
 #Modification de l'ownership pour que ce soit l'user mysql qui soit owner du dossier
-    chown mysql /var/lib/mysql && \
+    chown mysql /var/lib/mysql 
 #Suppression du fichier de configuration par defaut qui va etre remplace
-    rm /etc/my.cnf.d/mariadb-server.cnf \
+#    rm /etc/my.cnf.d/mariadb-server.cnf
 
-#Copie de notre fichier de configuration sur le container 
-COPY mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
-
-#Copie de notre script sql pour creer un user ?
-COPY create_user.sql /home/docker/script/create_user.sql
-
-#Copie du script 
-COPY script.sh /home/script/script.sh
-
-RUN chmod 777 /home/script/script.sh
-
-#Exposition du port de MySql par defaut 3306 pour permettre la communication
 EXPOSE 3306
-#Va nous permettre d eviter les hacky path et d'utiliser un entrypoint propre
 
-#ARG MARIADB_CONFIG_FILE
-#RUN mysqld --defaults-file=$MARIADB_CONFIG_FILE
-CMD ["mysqld"]
+#WORKDIR /usr/local/bin/
 
-#ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-#CMD ["bash", "-c", "do-some-pre-start-thing && exec my-server"]
+#Dans ce script il faudra pouvoir creer les deux utilisateurs
+COPY ./conf/create_db.sh /usr/local/bin/
 
-#we are not allowed to pull a mysql image
-#set up a Linux server (docker container) to host mysql
-#get users configured in MySQL 
-#try to connect to that server to make sure everything is working
+#A revoir s'il y a vraiment besoin de dumb init a parcours du moment ou on n'utilise
+#pas de "hacky path"
+ENTRYPOINT ["/usr/bin/dumb-init", "&&", "create_db.sh"]
+
+#Allows mysql to listen externaly, being a remote database
+CMD ["mysqld", "--bind-address=0.0.0.0"]
