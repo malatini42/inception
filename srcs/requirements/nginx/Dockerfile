@@ -2,13 +2,14 @@ FROM debian:buster
 
 #Best practice 
 #https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04
 RUN apt-get update && apt-get updrade -y
 
 #Installing nginx 
 RUN apt-get install nginx -y
 
-#Best practises to erase some garbages?
-#RUN rm -rf /var/lib/apt/lists/*
+#Check if nginx is running
+#nginx status
 
 #Installing openssl to generate SSL certificates
 #We need them to encrypt datas as we are supposed to do using the port 443.

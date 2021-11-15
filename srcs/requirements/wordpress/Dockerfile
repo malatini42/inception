@@ -17,14 +17,14 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY ./conf/www.conf /var/www/html/
 
 #Create a folder to enable php start (+ sockets to be available), we'll be sure that there is a .sock file in the folder
-RUN mkdir - /run/php
+#RUN mkdir - /run/php
 
 #Telecharger de wordpress directement sur le container
-ADD https://ru.wordpress.org/wordpress-5.7.2-ru_RU.tar.gz /var/www/
+ADD https://ru.wordpress.org/wordpress-5.8.2-ru_RU.tar.gz /var/www/
 #Untar the directory 
-RUN cd /var/www && tar -xzvf wordpress-5.7.2-ru_RU.tar.gz
+RUN cd /var/www && tar -xzvf wordpress-5.8.2-ru_RU.tar.gz
 #Remove the untared directory
-RUN rm -f /var/www/wordpress-5.7.2-ru_RU.tar.gz
+RUN rm -f /var/www/wordpress-5.8.2-ru_RU.tar.gz
 #Remove the default config file 
 RUN rm -f /var/www/wordpress/wp-config-sample.php
 

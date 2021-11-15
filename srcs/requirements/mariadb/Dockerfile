@@ -13,11 +13,23 @@ LABEL description="MariaDB Server"
 #Bonnes pratiques, toujours update et upgrade le package manager avant d'installer des dependances
 RUN apt-get update -y && apt-get upgrade -y
 
+#check the status of mariadb
+#sudo systemctl status mariadb
+
 #Installation des packages mariadb
 RUN apt-get install mariadb-server mariadb-client
 
+#Starting, Enabling 
+RUN sudo systemctl start mariadb.service
+RUN sudo systemctl enable mariadb.service
+
+#On host machine
+#RUN sudo mysql_secure_installation -n
+#J'ai choisi de ne pas mettre de root password
+#RUN sudo systemctl restart mariadb.service
+
 #Purge and recreate /var/lib/mysql users and ownership
-RUN rm -rf /var/lib/apt/lists *
+#RUN rm -rf /var/lib/apt/lists *
 
 #Mysqld handles MySQL installation
 #https://dev.mysql.com/doc/refman/8.0/en/mysqld.html
