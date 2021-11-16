@@ -8,13 +8,12 @@ RUN apt-get update && apt-get updrade -y
 #Installing nginx 
 RUN apt-get install nginx -y
 
-#Check if nginx is running
-#nginx status
-
 #Installing openssl to generate SSL certificates
 #We need them to encrypt datas as we are supposed to do using the port 443.
+RUN apt-get install openssl -y
 
-RUN apt-get  install openssl -y
+#Creation du dossier ssl qui contiendra les certificats
+RUN mkidr -p /etc/nginx/ssl
 
 #Basic command used on many tutorials to generale the certificate
 #TO DO: check if we need extra options
@@ -26,5 +25,6 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d
 
 #La directive expose doit etre presente sur tous les dockerfile
 EXPOSE 443
+
 #Turning on the daemon that is running on 42 vm ?
 CMD ["nginx", "-g", "daemon off;"]

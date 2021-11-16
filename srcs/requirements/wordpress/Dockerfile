@@ -11,7 +11,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get -y install wget php php-cgi php-mysql php-fpm php-pdo php-gd php-cli php-mbstring
 
 #Purgence the apt/lists folder (?)
-RUN rm -rf /var/lib/apt/lists/*
+#RUN rm -rf /var/lib/apt/lists/*
 
 #Copy the config file
 COPY ./conf/www.conf /var/www/html/
@@ -26,7 +26,7 @@ RUN cd /var/www && tar -xzvf wordpress-5.8.2-ru_RU.tar.gz
 #Remove the untared directory
 RUN rm -f /var/www/wordpress-5.8.2-ru_RU.tar.gz
 #Remove the default config file 
-RUN rm -f /var/www/wordpress/wp-config-sample.php
+#RUN rm -f /var/www/wordpress/wp-config-sample.php
 
 EXPOSE 9000
 
