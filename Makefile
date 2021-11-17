@@ -1,9 +1,9 @@
 COMPOSE_FILE	= ./srcs/docker-compose.yml
 
-all:	run
-
 run:
 		docker-compose -f ${COMPOSE_FILE} up --build
+
+all:	run
 
 up:
 		docker-compose -f ${COMPOSE_FILE} up --build -d

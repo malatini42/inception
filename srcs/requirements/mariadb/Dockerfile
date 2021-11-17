@@ -3,35 +3,25 @@ FROM debian:buster
 #DOCUMENTATION OFFICIELLE MARIADB 
 #https://mariadb.com/kb/en/creating-a-custom-docker-image/
 
-LABEL version="1.0"
-LABEL description="MariaDB Server"
-
 # Installation des packages necessaires
 #Bonnes pratiques, toujours update et upgrade le package manager avant d'installer des dependances
 RUN apt-get update -y && apt-get upgrade -y
 #Installation des packages mariadb
-RUN apt-get install mariadb-server mariadb-client
+RUN apt-get install mariadb-server mariadb-client -y
 
-#Starting, Enabling
-#RUN systemctl start mariadb.service
-#RUN systemctl enable mariadb.service
+RUN rm -rf /var/lib/apt/lists/*
 
-#Voir si on peut l'ajouter
-#RUN sudo mysql_secure_installation -n
+# RUN  apt-get install systemd -y
+#RUN mkdir -p /var/lib/mysql/wordpress
 
-#Mysqld handles MySQL installation
-#https://dev.mysql.com/doc/refman/8.0/en/mysqld.html
-RUN mkdir -p /var/run/mysqld \
-    chown mariadb /var/run/mysqld \
-#ensure /var/run/mysqld is readable, writable and executable
-    chmod 777 /var/run/mysqld
+#WORKDIR /var/lib/mysql/wordpress
+
+#COPY /var/lib/mysql/wordpress/ .
+
+#RUN service start mysql
+#RUN mysql -u root
 
 EXPOSE 3306
-
-#Dans ce script il faudra pouvoir creer les deux utilisateurs
-#COPY ./conf/create_db.sh /usr/local/bin/
-
-ENTRYPOINT ["create_db.sh"]
-
-#Allows mysql to listen externaly, being a remote database
-CMD ["mysqld", "--bind-address=0.0.0.0"]
+#RUN systemctl start mariadb
+#Attention la base de donnees doit etre accessible pour wordpress
+#CMD ["mysqld", "--bind-address=0.0.0.0"];
