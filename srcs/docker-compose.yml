@@ -1,41 +1,39 @@
 version: "3.3"
 
-#https://docs.docker.com/compose/networking/
-networks:
-    inception_network:
-
-#https://docs.docker.com/storage/volumes/
-#https://www.it-swarm-fr.com/fr/docker/docker-compose.yml-syntaxe-des-volumes-nommes/806987524/     
-volumes:
-        wordpress_data:
-                driver: local
-                driver_opts:
-                    type: none
-                    device: /var/www/html/wordpress
-                    o: bind
-                
-        db_data:
-                driver: local
-                driver_opts:
-                    type: none
-                    device: /var/lib/mysql/wordpress
-                    o: bind
-
 services:
         mariadb:
+            image: mariadb
+            env_file: .env
+            environment:
+             MYSQL_DATABASE: "${MYSQL_DATABASE}"
+             MYSQL_USER: "${MYSQL_USER}"
+             MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+             MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+             MYSQL_HOSTNAME: "${MYSQL_HOSTNAME}"
+             MYSQL_ADMIN: "${MYSQL_ADMIN}"
+             WORDPRESS_TABLE_PREFIX: "${WORDPRESS_TABLE_PREFIX}"
+            #command: --default-authentication-plugin=mysql_native_password --innodb-use-native-aio=0
             container_name: mariadb
             build: ./requirements/mariadb
             volumes:
              - db_data:/var/lib/mysql/wordpress
             networks:
-             - inception_network
-            image: mariadb:inception
+                - inception_network
             ports:
              - "3306:3306"
             restart: always
         wordpress:
             depends_on:
                 - mariadb
+            env_file: .env
+            environment:
+             MYSQL_DATABASE: "${MYSQL_DATABASE}"
+             MYSQL_USER: "${MYSQL_USER}"
+             MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+             MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+             MYSQL_HOSTNAME: "${MYSQL_HOSTNAME}"
+             MYSQL_ADMIN: "${MYSQL_ADMIN}"
+             WORDPRESS_TABLE_PREFIX: "${WORDPRESS_TABLE_PREFIX}"
             container_name: wordpress
             build: ./requirements/wordpress
             image: wordpress:inception
@@ -46,16 +44,37 @@ services:
             ports:
              - "9000:9000"
             restart: always
-        nginx:
-            depends_on:
-                - wordpress
-            container_name: nginx
-            build: ./requirements/nginx
-            image: nginx
-            ports:
-                - "443:443"
-            volumes:
-                - wordpress_data:/var/www/html/wordpress
-            networks:
-                - inception_network
-            restart: always
+        # nginx:
+        #     depends_on:
+        #         - wordpress
+        #     container_name: nginx
+        #     build: ./requirements/nginx
+        #     image: nginx
+        #     ports:
+        #         - "443:443"
+        #     volumes:
+        #         - wordpress_data:/var/www/html/wordpress
+        #     networks:
+        #         - inception_network
+        #     restart: always
+
+#https://docs.docker.com/compose/networking/
+networks:
+    inception_network:
+
+#https://docs.docker.com/storage/volumes/
+#https://www.it-swarm-fr.com/fr/docker/docker-compose.yml-syntaxe-des-volumes-nommes/806987524/     
+volumes:
+    wordpress_data:
+        driver: local
+        driver_opts:
+            type: none
+            device: /var/www/html/wordpress
+            o: bind
+                
+    db_data:
+        driver: local
+        driver_opts:
+            type: none
+            device: /var/lib/mysql/wordpress
+            o: bind
