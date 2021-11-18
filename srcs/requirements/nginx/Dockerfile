@@ -8,7 +8,21 @@ RUN apt-get update && apt-get upgrade -y
 #Installing nginx 
 RUN apt-get install nginx -y
 
-#Les fichiers de configuration sont partages dans le volumes
+# Installation d'open SSL
+RUN apt-get install openssl -y
+
+RUN rm -rf /var/lib/apt/lists/*
+
+#Creation des certificats pour SSL (HTTPS)
+RUN openssl req -x509 -newkey rsa:4096 -nodes -keyout /etc/ssl/malatini.42.fr.key -out /etc/ssl/malatini.42.fr.crt -days 365 -sha256 -subj '/C=FR/ST=Paris/L=Paris/O=42Paris/OU=malatini/CN=malatini.42.fr'
+
+#Copie du fichier de configuration nginx
+WORKDIR /etc/nginx/sites-available
+COPY ./wordpress.conf .
+RUN ln -s /etc/nginx/sites-available/wordpress.conf /etc/nginx/sites-enabled 
+
+#COPY wordpress.conf /etc/nginx/conf.d
+#COPY wordpress.conf /etc/nginx/http.d/wordpress.conf
 
 #La directive expose doit etre presente sur tous les dockerfile
 EXPOSE 443

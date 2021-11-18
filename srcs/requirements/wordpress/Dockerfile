@@ -6,25 +6,26 @@ LABEL maintainer=malatini
 
 #Updating and upgrading package manager for Debian
 RUN apt-get update && apt-get upgrade -y
-
 RUN apt-get install wget -y
-
-RUN php php-cgi php-mysql php-fpm php-pdo php-gd php-cli php-mbstring 
+RUN apt-get -y install php7.3 php-cgi php-mysql php-fpm php-pdo php-gd php-cli php-mbstring 
 
 # A revoir
-RUN rm -rf /var/lib/apt/list*
-RUN mkdir /run/ph
+#RUN rm -rf /var/lib/apt/list*
+#RUN mkdir /run/ph
 
+RUN mkdir -p /var/www/html/
 
-RUN mkdir -p /var/www/html/wordress/
+WORKDIR /var/www/html/
 
-#Penser a installer dumb init sur tous les container ?
-WORKDIR /var/www/html/wordpress/
+#Telechargement de wordpress comme sur ft_server
+RUN wget https://wordpress.org/latest.tar.gz
+RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
 
-COPY ./init_wordpress.sh .
+COPY ./wp-config.php ./wordpress
+
+#WORKDIR /tmp/
+#COPY ./init_wordpress.sh .
 
 EXPOSE 9000
-
-ENTRYPOINT ["./init_wordpress.sh"]
 
 CMD ["/usr/sbin/php-fpm7.3", "-F"]
