@@ -1,29 +1,37 @@
 COMPOSE_FILE	= ./srcs/docker-compose.yml
 
-run:
-		docker-compose -f ${COMPOSE_FILE} up --build
+SRCS 			:= ./srcs
+DOCKER			:= sudo docker
+COMPOSE 		:= cd srcs/ && sudo docker-compose
+DATA_PATH 		:= /home/malatini/data
 
-all:	run
+.PHONY	:	all build down clean fclean re
 
-up:
-		docker-compose -f ${COMPOSE_FILE} up --build -d
+all		:	build
+		sudo mkdir -p $(DATA_PATH)
+		sudo mkdir -p $(DATA_PATH)/wordpress
+		sudo mkdir -p $(DATA_PATH)/database
+ifeq ("$(wildcard .setup)","")
+	sudo chmod 777 /etc/hosts
+	sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
+	touch .setup
+endif
+		$(COMPOSE) up -d
 
-down:
-		docker-compose -f ${COMPOSE_FILE} 	down
+build	:
+		$(COMPOSE) build
 
-restart:
-		docker-compose -f ${COMPOSE_FILE} restart
+down	:
+		$(COMPOSE) down
 
-stop:
-		docker-compose -f ${CONPOSE_FILE} stop
+clean	:
+		$(COMPOSE) down -v --rmi all --remove-orphans
 
-debug:
-		docker-compose -f ${COMPOSE_FILE} --verbose up -d
+fclean	:	clean
+		$(DOCKER) system prune --volumes --all --force
+		sudo rm -rf $(DATA_PATH)
+		$(DOCKER) network prune --force
+		$(DOCKER) volume prune --force
+		$(DOCKER) image prune --force
 
-list:
-		docker ps -a
-
-list_volumes:
-		docker volume ls
-
-.PHONY: run up down restart down stop list list_volumes clean
+re		:	fclean all
