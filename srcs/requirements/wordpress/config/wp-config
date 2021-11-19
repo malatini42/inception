@@ -21,6 +21,11 @@
 // https://github.com/rhubarbgroup/redis-cache/wiki/Connection-Parameters
 
 define('WP_CACHE', true);
+// define( 'WP_REDIS_HOST', 'redis' );
+// define( 'WP_REDIS_PORT', '6379' );
+// define( 'WP_REDIS_TIMEOUT', 1 );
+// define( 'WP_REDIS_READ_TIMEOUT', 1 );
+// define( 'WP_REDIS_DATABASE', 0 );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -52,16 +57,15 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'lw&!N^bn7^_QYzb:QPts#~?=70)ykDj}AkvTiff#UvN;pw5@u4,oNWvdEx4Hq3-1' );
-define( 'SECURE_AUTH_KEY',  'S| xs|u&sW%(G7:JF sb|u|1%#/BE@io -ELK%-7<ecuHYvEGU:{z~0lQ;r[&?a(' );
-define( 'LOGGED_IN_KEY',    'Ce!F|eE*#VwDHfjKrn}tJleW_-Gdhl%Q=20t!3q`sHy[5e`&e9Tq[zzoB|x=vyEV' );
-define( 'NONCE_KEY',        'o>xaQ+fQu<Xn@Q4+(x#;<0(DP k<QVB,?dS;ThwIJ2j1P-lT|UK~cG{[vrY}_VOb' );
-define( 'AUTH_SALT',        ')l9 q-+@{,?8`SIW+5!x,.@M4:LxY-Xs-Z:Q|3!iGb&k3(8gaj!<4)mK~]k*u3kz' );
-define( 'SECURE_AUTH_SALT', '8 V1JKYl+hDVZ$JP+dCdn3ynpCNh`-A0[bElLx?}zAiT.ClRcECMlg:+lcx,&|RA' );
-define( 'LOGGED_IN_SALT',   'L[2+D;0!ZQu|+#*s[X>3l%:L+Rn%1!sbWh*(iD1|i6i SW+8TP+o~PskC+e#hT)C' );
-define( 'NONCE_SALT',       '&I$.pfk_OJ|f54yv3-+Kt8W01+G^b7hI*$y4wf! J@i^i2pc-.-^HP.C(PM5e{w(' );
-
-define ('WPLANG', 'fr_FR');
+define('AUTH_KEY',         'PnH|;!T]2e1]aQ.wAkeXI`+ZZbTU-{Q?$I19h+zBsnoL-2cZz*Qi?lZ&|T441@TI');
+define('SECURE_AUTH_KEY',  '|JO&9|-?P6z]s I<iI:fvok<RL&B9qs+SI*Y[.9%fOJM%=dZL<8m^#%wV)oV;v0f');
+define('LOGGED_IN_KEY',    'Mr|lw~PrRi5>s59ft . pOSkfD|fL4^8%@RBigAofk]1r}z^%d*N@]l6.3|JUQ]4');
+define('NONCE_KEY',        'ue42=r6X/*z/b?Ze5`t49|%qm<bgIRsSX~E++8fO|T1+B|dQD3`3>-R#Y$i||8$0');
+define('AUTH_SALT',        'AgJ`FKnhaEb]/_ZP84=e172-._0IB|U^=jrmM(~B=G .Empsmgw?KH((s0*N2H;(');
+define('SECURE_AUTH_SALT', '|)?QzMd$!<>Ic2v#i%0YF{^uR||`mngqxIQRy+gaM2@<MM-Ra>.I!Cl:{+u{$YS/');
+define('LOGGED_IN_SALT',   '/ZCi}|l+yQx=WT]*ey@2J`n^3`8V?}Ss+>,1v4xIEFU]AxL j{MEi^ f>]-vYkbX');
+define('NONCE_SALT',       'M,/>.#K-J$/9|&Jo7>d+q+:IvTVZORO^gGWW+[VRRWezuN|!TXf4~~f4JSK{0)-Y');
+define('WP_CACHE_KEY_SALT',       '~E^@Cb&Y99+lh4+9sEO0<[pD&G7*gI&^|PNDTBb$GNyeqcUd-dC htj+fx5+z0RG');
 
 /**#@-*/
 

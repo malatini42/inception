@@ -1,8 +1,5 @@
-#On va regarder dans notre script quel est le retour du dernier
 cat .setup 2> /dev/null
 if [ $? -ne 0 ]; then
-#if [$? != 0]; then
-    #file creation failed
 	usr/bin/mysqld_safe --datadir=/var/lib/mysql &
 
 	# Apply config
