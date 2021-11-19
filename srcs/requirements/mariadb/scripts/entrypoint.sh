@@ -1,5 +1,10 @@
+# Si la base de donnees et le wordpress n ont pas ete encore cree, on generera un fichier .setup
+# Si le fichier existe c'est que le setup a deja ete fait
+# Sinon, il faut le faire
 cat .setup 2> /dev/null
-if [ $? -ne 0 ]; then
+# On recupere le retour de la derniere commande ce qui va nous permettre en l'occurence 
+# de savoir si le fichier existe ou pas
+if [ $? != 0 ]; then
 	usr/bin/mysqld_safe --datadir=/var/lib/mysql &
 
 	# Apply config

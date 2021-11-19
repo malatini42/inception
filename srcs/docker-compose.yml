@@ -1,65 +1,56 @@
-version: '3'
+version: '3.6'
 
-volumes:
-  mariadb-volume:
-    driver: local
-    driver_opts:
-      device: /home/malatini/data/database
-      type: volume
-      o: bind
-  wordpress-volume:
-    driver: local
-    driver_opts:
-      device: /home/malatini/data/wordpress
-      type: volume
-      o: bind
-
-networks:
-  mariadb-network:
-  nginx-network:
+# Les volumes sont utilises pour la persistances des donnees
+# https://docs.docker.com/storage/volumes/
 
 services:
   nginx:
-    container_name: 42nginx
+    container_name: nginx
+    # Ne va pas essayer de se build si wordpress n'a pas reussi a se build
+    depends_on:
+     - wordpress
+    # Path to the directory which contains the Dockerfile (could be a url)
     build:
       context: ./requirements/nginx
-    image: 42_nginx
+    #On donne un nom a l'image qui va etre utilisee pour le build
+    # Liste des volumes auxquelles le container a acces (peut partager avec d'autres)
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
-      - nginx-network
+      - inception-network
+    # defines mapping between the host and the container.
+    # On ne veut pas faire ca sur les autres containers puisque seul ce port doit etre accessible.
     ports:
       - "443:443"
-    restart: unless-stopped
+    restart: on-failure
 
   mariadb:
-    container_name: 42mariadb
+    container_name: mariadb
     build:
       context: ./requirements/mariadb
-    image: 42_mariadb
     volumes:
       - mariadb-volume:/var/lib/mysql
     networks:
-      - mariadb-network
+      - inception-network
+    # Interpolation des variables d'environnement
     environment:
       - MARIADB_ROOT_PWD=${MARIADB_ROOT_PWD}
       - MARIADB_DB=${MARIADB_DB}
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PWD=${MARIADB_PWD}
-    restart: unless-stopped
+    restart: on-failure
 
   wordpress:
-    container_name: 42wordpress
+    container_name: wordpress
     depends_on:
       - mariadb
     build:
       context: ./requirements/wordpress
-    image: 42_wordpress
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
-      - nginx-network
-      - mariadb-network
+      - inception-network
+    # Variables d'environnement pour la configuration du Wordpress + acces a la base de donnees
     environment: 
       - WP_URL=${WP_URL}
       - WP_DATABASE=${WP_DATABASE}
@@ -74,4 +65,32 @@ services:
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PWD=${MARIADB_PWD}
       - MARIADB_DB=${MARIADB_DB}
-    restart: unless-stopped
+    restart: on-failure
+
+volumes:
+  mariadb-volume:
+  # "driver specifies a logging driver for the service's container"
+  # local means the volume are created on the same Docker host on which the containers are running.
+  # we could create volumes on external hosts.
+  # Par defaut sur linux les volumes sont montes sur /var/lib/docker/volumes/
+    driver: local
+    # Les trois options sont necessaires sinon le build ne fonctionne pas
+    driver_opts:
+    #   # Les volumes doivent se trouver dans ce dossier sur la machine hote.
+    #   # Demande express du sujet
+      device: /home/malatini/data/database
+      type: volume
+      o: bind
+  wordpress-volume:
+    driver: local
+    driver_opts:
+      device: /home/malatini/data/wordpress
+      type: volume
+      o: bind
+
+# Definition de notre network (comme sur le schema d'architecture)
+# Les containers seront reachable uniquement par les autres containers du meme reseau
+# Par defaut docker cree un reseau meme si rien n'est specifie
+# La directive doit etre mentionnee (selon le sujet).
+networks:
+  inception-network:
