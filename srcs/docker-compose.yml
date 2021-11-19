@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -11,58 +12,70 @@
 # **************************************************************************** #
 
 version: '3.6'
+=======
+version: '3'
+>>>>>>> parent of 78bd9f6... save
 
-# Les volumes sont utilises pour la persistances des donnees
-# https://docs.docker.com/storage/volumes/
+volumes:
+  mariadb-volume:
+    driver: local
+    driver_opts:
+      device: /home/malatini/data/database
+      type: volume
+      o: bind
+  wordpress-volume:
+    driver: local
+    driver_opts:
+      device: /home/malatini/data/wordpress
+      type: volume
+      o: bind
+
+networks:
+  mariadb-network:
+  nginx-network:
 
 services:
   nginx:
-    container_name: nginx
-    # Ne va pas essayer de se build si wordpress n'a pas reussi a se build
-    depends_on:
-     - wordpress
-    # Path to the directory which contains the Dockerfile (could be a url)
+    container_name: 42nginx
     build:
       context: ./requirements/nginx
-    #On donne un nom a l'image qui va etre utilisee pour le build
-    # Liste des volumes auxquelles le container a acces (peut partager avec d'autres)
+    image: 42_nginx
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
-      - inception-network
-    # defines mapping between the host and the container.
-    # On ne veut pas faire ca sur les autres containers puisque seul ce port doit etre accessible.
+      - nginx-network
     ports:
       - "443:443"
-    restart: on-failure
+    restart: unless-stopped
 
   mariadb:
-    container_name: mariadb
+    container_name: 42mariadb
     build:
       context: ./requirements/mariadb
+    image: 42_mariadb
     volumes:
       - mariadb-volume:/var/lib/mysql
     networks:
-      - inception-network
-    # Interpolation des variables d'environnement
+      - mariadb-network
     environment:
       - MARIADB_ROOT_PWD=${MARIADB_ROOT_PWD}
       - MARIADB_DB=${MARIADB_DB}
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PWD=${MARIADB_PWD}
-    restart: on-failure
+    restart: unless-stopped
 
   wordpress:
-    container_name: wordpress
+    container_name: 42wordpress
     depends_on:
       - mariadb
     build:
       context: ./requirements/wordpress
+    image: 42_wordpress
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
-      - inception-network
-    # Variables d'environnement pour la configuration du Wordpress + acces a la base de donnees
+      - nginx-network
+      - mariadb-network
     environment: 
       - WP_URL=${WP_URL}
       - WP_DATABASE=${WP_DATABASE}
@@ -77,6 +90,7 @@ services:
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PWD=${MARIADB_PWD}
       - MARIADB_DB=${MARIADB_DB}
+<<<<<<< HEAD
     restart: on-failure
 
 volumes:
@@ -106,3 +120,6 @@ volumes:
 # La directive doit etre mentionnee (selon le sujet).
 networks:
   inception-network:
+=======
+    restart: unless-stopped
+>>>>>>> parent of 78bd9f6... save
