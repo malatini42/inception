@@ -1,9 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/11/19 16:50:19 by malatini          #+#    #+#              #
+#    Updated: 2021/11/19 16:51:35 by malatini         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-FROM	alpine:3.13
+FROM	alpine:3.14
 
 RUN		apk update
-RUN		apk add --no-cache --quiet --update nginx
-RUN		apk add --no-cache --quiet --update openssl
+RUN		apk add nginx
+RUN		apk add openssl
 
 RUN		mkdir -p /etc/nginx/ssl
 # SUBJ opts: https://www.ibm.com/docs/en/ibm-mq/7.5?topic=certificates-distinguished-names

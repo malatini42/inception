@@ -1,10 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/11/19 16:50:28 by malatini          #+#    #+#              #
+#    Updated: 2021/11/19 16:51:24 by malatini         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-FROM	alpine:3.13
+FROM	alpine:3.14
 
 RUN		apk update
-RUN		apk add --no-cache --quiet --update bash curl less
-RUN		apk add --no-cache --quiet --update mariadb-client
-RUN		apk add --no-cache --quiet --update php7 php7-phar \
+RUN		apk add bash curl less
+RUN		apk add mariadb-client
+RUN		apk add php7 php7-phar \
 			php7-json php7-curl php7-fpm php7-mysqli php7-iconv
 
 RUN		mkdir -p /var/www/wordpress /usr/local/bin/wp

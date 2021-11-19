@@ -1,7 +1,17 @@
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/11/19 16:49:59 by malatini          #+#    #+#              #
+#    Updated: 2021/11/19 16:51:41 by malatini         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 # https://wiki.alpinelinux.org/wiki/MariaDB
-FROM	alpine:3.13
+FROM	alpine:3.14
 
 RUN		apk update
 RUN		apk add mariadb mariadb-client
