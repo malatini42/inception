@@ -1,20 +1,4 @@
-<<<<<<< HEAD
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    docker-compose.yml                                 :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: malatini <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/19 16:40:58 by malatini          #+#    #+#              #
-#    Updated: 2021/11/19 16:40:59 by malatini         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-version: '3.6'
-=======
 version: '3'
->>>>>>> parent of 78bd9f6... save
 
 volumes:
   mariadb-volume:
@@ -36,10 +20,10 @@ networks:
 
 services:
   nginx:
-    container_name: 42nginx
+    container_name: nginx
     build:
       context: ./requirements/nginx
-    image: 42_nginx
+    image: img_nginx
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
@@ -49,10 +33,10 @@ services:
     restart: unless-stopped
 
   mariadb:
-    container_name: 42mariadb
+    container_name: mariadb
     build:
       context: ./requirements/mariadb
-    image: 42_mariadb
+    image: img_mariadb
     volumes:
       - mariadb-volume:/var/lib/mysql
     networks:
@@ -65,12 +49,12 @@ services:
     restart: unless-stopped
 
   wordpress:
-    container_name: 42wordpress
+    container_name: wordpress
     depends_on:
       - mariadb
     build:
       context: ./requirements/wordpress
-    image: 42_wordpress
+    image: img_wordpress
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
@@ -90,36 +74,4 @@ services:
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PWD=${MARIADB_PWD}
       - MARIADB_DB=${MARIADB_DB}
-<<<<<<< HEAD
-    restart: on-failure
-
-volumes:
-  mariadb-volume:
-  # "driver specifies a logging driver for the service's container"
-  # local means the volume are created on the same Docker host on which the containers are running.
-  # we could create volumes on external hosts.
-  # Par defaut sur linux les volumes sont montes sur /var/lib/docker/volumes/
-    driver: local
-    # Les trois options sont necessaires sinon le build ne fonctionne pas
-    driver_opts:
-    #   # Les volumes doivent se trouver dans ce dossier sur la machine hote.
-    #   # Demande express du sujet
-      device: /home/malatini/data/database
-      type: volume
-      o: bind
-  wordpress-volume:
-    driver: local
-    driver_opts:
-      device: /home/malatini/data/wordpress
-      type: volume
-      o: bind
-
-# Definition de notre network (comme sur le schema d'architecture)
-# Les containers seront reachable uniquement par les autres containers du meme reseau
-# Par defaut docker cree un reseau meme si rien n'est specifie
-# La directive doit etre mentionnee (selon le sujet).
-networks:
-  inception-network:
-=======
     restart: unless-stopped
->>>>>>> parent of 78bd9f6... save

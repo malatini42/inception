@@ -21,11 +21,11 @@
 // https://github.com/rhubarbgroup/redis-cache/wiki/Connection-Parameters
 
 define('WP_CACHE', true);
-// define( 'WP_REDIS_HOST', 'redis' );
-// define( 'WP_REDIS_PORT', '6379' );
-// define( 'WP_REDIS_TIMEOUT', 1 );
-// define( 'WP_REDIS_READ_TIMEOUT', 1 );
-// define( 'WP_REDIS_DATABASE', 0 );
+define( 'WP_REDIS_HOST', 'redis' );
+define( 'WP_REDIS_PORT', '6379' );
+define( 'WP_REDIS_TIMEOUT', 1 );
+define( 'WP_REDIS_READ_TIMEOUT', 1 );
+define( 'WP_REDIS_DATABASE', 0 );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
