@@ -1,32 +1,13 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: malatini <dev@malatini.dev>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/10/18 14:24:39 by malatini            #+#    #+#              #
-#    Updated: 2021/10/26 15:17:25 by malatini           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 SRCS 			:= ./srcs
 DOCKER			:= sudo docker
 COMPOSE 		:= cd srcs/ && sudo docker-compose
 DATA_PATH 		:= /home/malatini/data
 
-#	-	[	all	]
-#
-#	Down every containers
-#	Build images
-#	Run containers in background.
-.PHONY	:	all
+#.PHONY	:	all
 all		:	build
 		sudo mkdir -p $(DATA_PATH)
-		sudo mkdir -p $(DATA_PATH)/monitoring
 		sudo mkdir -p $(DATA_PATH)/wordpress
 		sudo mkdir -p $(DATA_PATH)/database
-		sudo mkdir -p $(DATA_PATH)/cv
 ifeq ("$(wildcard .setup)","")
 	@ printf "[\033[0;32m+\033[m] Applying DNS redirection\n"
 	sudo chmod 777 /etc/hosts
@@ -35,32 +16,19 @@ ifeq ("$(wildcard .setup)","")
 endif
 		$(COMPOSE) up -d
 
-#	-	[	build	]
-#
-#	Build images that differs.
-.PHONY	:	build
+#.PHONY	:	build
 build	:
 		$(COMPOSE) build
 
-#	-	[	down	]
-#
-#	Down each image in compose.
-.PHONY	:	down
+#.PHONY	:	down
 down	:
 		$(COMPOSE) down
 
-#	-	[	clean	]
-#
-#	Down each image in compose and destroy associated volumes.
-.PHONY	:	clean
+#.PHONY	:	clean
 clean	:
 		$(COMPOSE) down -v --rmi all --remove-orphans
 
-#	-	[	fclean	]
-#
-#	Down each images and destroy associated volumes.
-#	Destroy data directory.
-.PHONY	:	fclean
+#.PHONY	:	fclean
 fclean	:	clean
 		$(DOCKER) system prune --volumes --all --force
 		sudo rm -rf $(DATA_PATH)
@@ -68,8 +36,5 @@ fclean	:	clean
 		$(DOCKER) volume prune --force
 		$(DOCKER) image prune --force
 
-#	-	[	re	]
-#
-#	Cleanup environnement and rebuild everything.
-.PHONY	:	re
+#.PHONY	:	re
 re		:	fclean all
