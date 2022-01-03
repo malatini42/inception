@@ -5,8 +5,9 @@ RUN		apk add --no-cache --quiet --update nginx
 RUN		apk add --no-cache --quiet --update openssl
 
 RUN		mkdir -p /etc/nginx/ssl
+# SUBJ opts: https://www.ibm.com/docs/en/ibm-mq/7.5?topic=certificates-distinguished-names
 RUN 	openssl req -x509 -nodes \
-	-out /etc/nginx/ssl/malatini.fr.crt \	
+	-out /etc/nginx/ssl/malatini.42.fr.crt \	
 	-keyout /etc/nginx/ssl/malatini.42.fr.key \
 	-subj "/C=FR/ST=IDF/L=Paris/O=42/OU=42/CN=malatini.42.fr/UID=malatini"
 

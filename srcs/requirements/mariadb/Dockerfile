@@ -1,3 +1,5 @@
+
+
 # https://wiki.alpinelinux.org/wiki/MariaDB
 FROM	alpine:3.13
 
@@ -9,7 +11,7 @@ COPY	./config/create_db.sql /tmp/create_db.sql
 COPY	./scripts/entrypoint.sh ./
 
 RUN		mariadb-install-db --datadir=/var/lib/mysql \
-	--auth-root-authentication-method=normal
+			--auth-root-authentication-method=normal
 RUN		chown -R mysql:mysql /var/lib/mysql /run/mysqld
 
 ENTRYPOINT [ "sh", "entrypoint.sh" ]

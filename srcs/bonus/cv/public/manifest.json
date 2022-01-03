@@ -1,0 +1,14 @@
+{
+  "short_name": "cv",
+  "name": "inception static website cv",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "168x156",
+      "type": "img/png"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "#1f1f1f",
+  "background_color": "#1f1f1f"
+}

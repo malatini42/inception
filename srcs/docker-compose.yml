@@ -13,30 +13,45 @@ volumes:
       device: /home/malatini/data/wordpress
       type: volume
       o: bind
+  cv-volume:
+    driver: local
+    driver_opts:
+      device: /home/malatini/data/cv
+      type: volume
+      o: bind
+  monitoring-volume:
+    driver: local
+    driver_opts:
+      device: /home/malatini/data/monitoring
+      type: volume
+      o: bind
 
 networks:
   mariadb-network:
   nginx-network:
+  monitoring-network:
+  redis-network:
 
 services:
   nginx:
-    container_name: nginx
+    container_name: 42nginx
     build:
       context: ./requirements/nginx
-    image: img_nginx
+    image: 42_nginx
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
       - nginx-network
+      - monitoring-network
     ports:
       - "443:443"
     restart: unless-stopped
 
   mariadb:
-    container_name: mariadb
+    container_name: 42mariadb
     build:
       context: ./requirements/mariadb
-    image: img_mariadb
+    image: 42_mariadb
     volumes:
       - mariadb-volume:/var/lib/mysql
     networks:
@@ -49,18 +64,19 @@ services:
     restart: unless-stopped
 
   wordpress:
-    container_name: wordpress
+    container_name: 42wordpress
     depends_on:
       - mariadb
     build:
       context: ./requirements/wordpress
-    image: img_wordpress
+    image: 42_wordpress
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
       - nginx-network
       - mariadb-network
-    environment: 
+      - redis-network
+    environment:
       - WP_URL=${WP_URL}
       - WP_DATABASE=${WP_DATABASE}
       - WP_TITLE=${WP_TITLE}
@@ -74,4 +90,112 @@ services:
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PWD=${MARIADB_PWD}
       - MARIADB_DB=${MARIADB_DB}
+    restart: unless-stopped
+
+  adminer:
+    container_name: 42adminer
+    depends_on:
+      - mariadb
+    build:
+      context: ./bonus/adminer
+    image: 42_adminer
+    volumes:
+      - wordpress-volume:/var/www/wordpress
+    networks:
+      - nginx-network
+      - mariadb-network
+    environment:
+      - MARIADB_HOST=${MARIADB_HOST}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PWD=${MARIADB_PWD}
+      - MARIADB_DB=${MARIADB_DB}
+    restart: unless-stopped
+
+  redis:
+    container_name: 42redis
+    build:
+      context: ./bonus/redis
+    image: 42_redis
+    networks:
+      - redis-network
+    restart: unless-stopped
+
+  cv:
+    container_name: 42cv
+    build:
+      context: ./bonus/cv
+    image: 42_cv
+    networks:
+      - nginx-network
+    volumes:
+      - cv-volume:/var/www/html
+    restart: unless-stopped
+
+  ftp:
+    container_name: 42ftp
+    build:
+      context: ./bonus/vsftpd
+    image: 42_vsftpd
+    volumes:
+      - wordpress-volume:/var/www/wordpress
+    environment:
+      - FTP_USER=${FTP_USER}
+      - FTP_PWD=${FTP_PWD}
+      - FTP_ROOT=${FTP_ROOT}
+    ports:
+      - "21:21"
+    restart: unless-stopped
+
+  cadvisor:
+    container_name: 42cadvisor
+    build:
+      context: ./bonus/cadvisor
+    image: 42_cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    networks:
+      - monitoring-network
+    command:
+      - '-port=${CADVISOR_PORT}'
+      - '-url_base_prefix=${CADVISOR_URL_BASE_PREFIX}'
+    restart: unless-stopped
+
+  prometheus:
+    container_name: 42prometheus
+    build:
+      context: ./bonus/prometheus
+    image: 42_prometheus
+    volumes:
+      - monitoring-volume:/monitor
+    networks:
+      - monitoring-network
+    environment:
+      - CADVISOR_PORT=${CADVISOR_PORT}
+      - PROMETHEUS_PORT=${PROMETHEUS_PORT}
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/monitor/prometheus'
+      - '--storage.tsdb.retention=200h'
+      - '--web.listen-address=:${PROMETHEUS_PORT}'
+    restart: unless-stopped
+
+  grafana:
+    container_name: 42grafana
+    build:
+      context: ./bonus/grafana
+    image: 42_grafana
+    volumes:
+      - monitoring-volume:/monitor
+    networks:
+      - nginx-network
+      - monitoring-network
+    environment:
+      - PROMETHEUS_PORT=${PROMETHEUS_PORT}
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
     restart: unless-stopped

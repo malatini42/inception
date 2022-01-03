@@ -1,7 +1,7 @@
 # inception
 
 - 125 / 100
-- run sudo make && head to https://c3b5aw.42.fr
+- run sudo make && head to https://malatini.42.fr
 
 ## mandatory part
 
