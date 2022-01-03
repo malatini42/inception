@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    entrypoint.sh                                      :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: malatini <dev@malatini.dev>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/10/24 15:17:06 by malatini            #+#    #+#              #
-#    Updated: 2021/10/24 22:21:17 by malatini           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 target="/etc/php7/php-fpm.d/www.conf"
 grep -E "listen = 127.0.0.1" $target > /dev/null 2>&1
 if [ $? -eq 0 ]; then
@@ -22,16 +10,6 @@ fi
 
 if [ ! -f "wp-config.php" ]; then
 	cp /config/wp-config ./wp-config.php
-
-# 	if [[ "$WP_ADMIN_USER" == *"admin"* ]]; then
-# 		printf "WP_ADMIN_USER must not contain `admin`\n" "$WP_ADMIN_USER"
-# 		exit 1
-# 	fi
-
-# 	if [[ "$WP_ADMIN_USER" == *"Admin"* ]]; then
-# 		printf "WP_ADMIN_USER must not contain `Admin`\n" "$WP_ADMIN_USER"
-# 		exit 1
-# 	fi
 
 	sleep 5;
 	if ! mysqladmin -h $MARIADB_HOST -u $MARIADB_USER \
