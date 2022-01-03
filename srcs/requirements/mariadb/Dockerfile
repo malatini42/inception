@@ -7,9 +7,6 @@ RUN		apk update
 # Installation de mariadb et mariadb client
 RUN		apk add --no-cache --quiet --update mariadb mariadb-client
 
-# Creation du dossier mysqld qui va etre utilise par le daemon (pour faire "tourner" la base de donnee)
-RUN		mkdir -p /var/lib/mysqld /run/mysqld
-
 # Execution du script de creation de la base de donnees
 COPY	./config/create_db.sql /tmp/create_db.sql
 
@@ -23,6 +20,6 @@ RUN		mariadb-install-db --datadir=/var/lib/mysql \
 			--auth-root-authentication-method=normal
 
 # Le user mysql doit etre le owner des dossiers relatifs a mysql
-RUN		chown -R mysql:mysql /var/lib/mysql /run/mysqld
+RUN		chown -R mysql:mysql /var/lib/mysql 
 
 ENTRYPOINT [ "sh", "./entrypoint.sh" ]
