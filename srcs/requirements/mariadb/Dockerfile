@@ -1,6 +1,5 @@
-
 # Depuis l'image la plus legere
-FROM	alpine:3.15
+FROM	alpine:3.13
 
 # Mise a jour du gestionnaire de paquet, bonne pratique
 RUN		apk update
@@ -15,7 +14,9 @@ RUN		mkdir -p /var/lib/mysqld /run/mysqld
 COPY	./config/create_db.sql /tmp/create_db.sql
 
 # Copie du script entrypoint sur le container
-#COPY	./scripts/entrypoint.sh ./
+COPY	./scripts/entrypoint.sh ./
+
+RUN 	chmod +x ./entrypoint.sh
 
 # Installation de la base de donnee effective et authentification
 RUN		mariadb-install-db --datadir=/var/lib/mysql \
@@ -24,4 +25,4 @@ RUN		mariadb-install-db --datadir=/var/lib/mysql \
 # Le user mysql doit etre le owner des dossiers relatifs a mysql
 RUN		chown -R mysql:mysql /var/lib/mysql /run/mysqld
 
-ENTRYPOINT [ "sh", "entrypoint.sh" ]
+ENTRYPOINT [ "sh", "./entrypoint.sh" ]

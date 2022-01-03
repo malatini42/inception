@@ -1,9 +1,8 @@
-/** Suppression des user et bases de donnees crees par defaut *
+/** Suppression des user et bases de donnees crees par defau, necessaire pour une correction avec succes */
 DELETE FROM	mysql.user WHERE User='';
 DROP DATABASE test;
 DELETE FROM mysql.db WHERE Db='test';
 DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-*/
 
 /** Definition d'un mot de passe pour acceder a mysql **/
 SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$MARIADB_ROOT_PWD');

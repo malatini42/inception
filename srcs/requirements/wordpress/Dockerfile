@@ -1,5 +1,5 @@
 # Utilisation de l image la plus legere
-FROM	alpine:3.15
+FROM	alpine:3.13
 
 # Mise a jour du gestionnaire de paquet + telechargements des outils
 RUN		apk update
