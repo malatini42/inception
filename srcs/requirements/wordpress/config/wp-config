@@ -1,5 +1,5 @@
 <?php
-#define('WP_CACHE', true);
+# Fichier de configuration necessaire de wordpress
 
 /** Database **/
 define( 'DB_NAME', getenv('MARIADB_DB') );
@@ -19,6 +19,7 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
+/* Salt, key, securite */
 define('AUTH_KEY',         'a7D>mN+j~IF{MSWg/aF1/5+!>/tax/4V}{fnk*Z4>p!6LW+vRGOaP0&GX]i-`7nB');
 define('SECURE_AUTH_KEY',  'iKEdqL0#SL/Ao618=ZD,W%Ogu0s(zpN?nLB~Q@d-Cd7fK|Sqd%!8UT,>9+ D5wgY');
 define('LOGGED_IN_KEY',    'aMlu9G=Y-D,dk}?9g}2CS(O$a@F~eB^+Peq)WXYYrIGr|uXb^]rKQJT[&jS<S4;E');
@@ -27,11 +28,12 @@ define('AUTH_SALT',        '1i%SIOPS[%H^o7ku3%z>%(I>T: ~N*#&KE{s($]2.|->SE1e/ICC
 define('SECURE_AUTH_SALT', '22@6,} Y-Ul@;~z*#{8g+{1gm4aB+ wQws*ky3Gpgi/E{:5!f_yJ?PEtBcNKJX)v');
 define('LOGGED_IN_SALT',   'iQ0&>`$]A9pR[lKi &55?{T@-^g},e(kkuV]{uPaTk;U2r!r6v]o-DLnfeg-TKAG');
 define('NONCE_SALT',       '9QC%D_ !h~+c614K#*c-~yKtrru^=r;#k0mC]m&?[s@c;Z2rJ!Q|K%[xC,1:=&Wq');
-/**define('WP_CACHE_KEY_SALT',       '~E^@Cb&Y99+lh4+9sEO0<[pD&G7*gI&^|PNDTBb$GNyeqcUd-dC htj+fx5+z0RG'); **/
 
+#Prefix des tables de la base de donnees 
 $table_prefix = 'wp_';
 
-define( 'WP_DEBUG', false);
+#Va permet de fonctionnalites de debug
+define( 'WP_DEBUG', true);
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -39,4 +41,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /** Sets up WordPress vars and included files. */
+/** Etape cruciale sinon la page ne pourra pas s'afficher */
 require_once ABSPATH . 'wp-settings.php';

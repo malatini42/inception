@@ -1,7 +1,7 @@
-SRCS 			:= ./srcs
-DOCKER			:= sudo docker
-COMPOSE 		:= cd srcs/ && sudo docker-compose
-DATA_PATH 		:= /home/malatini/data
+SRCS 			= ./srcs
+DOCKER			= docker
+COMPOSE 		= cd srcs/ && docker-compose
+DATA_PATH 		= /home/malatini/data
 
 all		:	build
 			sudo mkdir -p $(DATA_PATH)
@@ -9,12 +9,6 @@ all		:	build
 			sudo mkdir -p $(DATA_PATH)/database
 			sudo chmod 777 /etc/hosts
 			sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
-# ifeq ("$(wildcard .setup)","")
-# 	@ printf "[\033[0;32m+\033[m] Applying DNS redirection\n"
-# 	sudo chmod 777 /etc/hosts
-# 	sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
-# 	touch .setup
-# endif
 			$(COMPOSE) up -d
 
 build	:
