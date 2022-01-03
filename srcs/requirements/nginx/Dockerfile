@@ -1,3 +1,4 @@
+# La version 3.15 bug avec ces commandes
 FROM	alpine:3.13
 
 # Mise a jour du gestionnaire de paquet
@@ -22,12 +23,8 @@ RUN 	mkdir -p /var/run/nginx
 # Copie sur le container du fichier de configuration pour servir la page qu'on souhaite
 COPY	config/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Creation d'un lien symbolique pour recuperer les logs
-RUN		ln -sf /dev/stdout /var/log/nginx/access.log \
-			&& ln -sf /dev/stderr /var/log/nginx/error.log
-
 # Exposition du seul port autorise par le sujet
 EXPOSE	443
 
-# Lancement de nginx en background
+# Lancement de nginx en background (les logs seront /var/log/nginx)
 CMD	[ "nginx", "-g", "daemon off;" ]
