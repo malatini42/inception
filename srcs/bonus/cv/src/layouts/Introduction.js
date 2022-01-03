@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Introduction.js                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malatini <dev@malatini.dev>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/18 16:01:35 by malatini            #+#    #+#             */
+/*   Updated: 2021/10/21 19:57:44 by malatini           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 import { Container, Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
@@ -18,7 +30,7 @@ const useStyles = makeStyles((theme : Theme) => ({
 
 export function Introduction() {
 	const	badge_url 	= 'https://badge42.herokuapp.com/api/stats/';
-	const	login 		= 'c3b5aw';
+	const	login 		= 'malatini';
 	const	opts		= '';
 
 	const cls = useStyles();
@@ -29,7 +41,7 @@ export function Introduction() {
 				Hello,
 			</Typography>
 			<Typography>
-				My login is c3b5aw
+				My login is malatini
 			</Typography>
 			<Paper className={ cls.statsContainer } elevation={0}>
 				<img

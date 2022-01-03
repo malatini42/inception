@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Footer.js                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malatini <dev@malatini.dev>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/18 16:01:42 by malatini            #+#    #+#             */
+/*   Updated: 2021/10/21 19:55:28 by malatini           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 import { makeStyles } from "@mui/styles";
 import { Container, Grid, Typography, Link } from "@mui/material";
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -27,9 +39,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 export function Footer() {
 	const cls = useStyles();
 
-	const openTwitter = () => window.open('https://twitter.com/c3b5aw', '_blank');
-	const openGithub = () => window.open('https://github.com/c3b5aw', '_blank');
-	const openMail = () => window.open('mailto:dev@c3b5aw.dev', '_blank');
+	const openTwitter = () => window.open('https://twitter.com/malatini', '_blank');
+	const openGithub = () => window.open('https://github.com/malatini', '_blank');
+	const openMail = () => window.open('mailto:dev@malatini.dev', '_blank');
 
 	return (
 		<Container maxWidth='md' className={ cls.footer }>

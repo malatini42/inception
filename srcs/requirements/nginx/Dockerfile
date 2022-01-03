@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: malatini <dev@malatini.dev>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/10/18 14:23:38 by malatini            #+#    #+#              #
+#    Updated: 2021/10/24 21:14:21 by malatini           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FROM	alpine:3.13
 
 RUN		apk update
@@ -15,7 +27,7 @@ RUN 	mkdir -p /var/run/nginx
 COPY	config/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN		ln -sf /dev/stdout /var/log/nginx/access.log \
-	&& ln -sf /dev/stderr /var/log/nginx/error.log
+			&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 EXPOSE	443
 

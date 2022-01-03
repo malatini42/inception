@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Curriculum.js                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malatini <dev@malatini.dev>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/18 16:01:38 by malatini            #+#    #+#             */
+/*   Updated: 2021/10/21 16:20:17 by malatini           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 import { makeStyles  } from "@mui/styles";
 import { Container } from "@mui/material";
 import { Timeline, Content, ContentYear, ContentBody, Description } from '../timeline';

@@ -14,7 +14,7 @@ volumes:
       type: volume
       o: bind
   cv-volume:
-    driver: local
+    driver: local 
     driver_opts:
       device: /home/malatini/data/cv
       type: volume
@@ -76,7 +76,7 @@ services:
       - nginx-network
       - mariadb-network
       - redis-network
-    environment:
+    environment: 
       - WP_URL=${WP_URL}
       - WP_DATABASE=${WP_DATABASE}
       - WP_TITLE=${WP_TITLE}
@@ -138,7 +138,7 @@ services:
     image: 42_vsftpd
     volumes:
       - wordpress-volume:/var/www/wordpress
-    environment:
+    environment: 
       - FTP_USER=${FTP_USER}
       - FTP_PWD=${FTP_PWD}
       - FTP_ROOT=${FTP_ROOT}
@@ -158,7 +158,7 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
     networks:
-      - monitoring-network
+        - monitoring-network
     command:
       - '-port=${CADVISOR_PORT}'
       - '-url_base_prefix=${CADVISOR_URL_BASE_PREFIX}'
@@ -191,8 +191,8 @@ services:
     volumes:
       - monitoring-volume:/monitor
     networks:
-      - nginx-network
-      - monitoring-network
+        - nginx-network
+        - monitoring-network
     environment:
       - PROMETHEUS_PORT=${PROMETHEUS_PORT}
       - GF_AUTH_DISABLE_LOGIN_FORM=true
