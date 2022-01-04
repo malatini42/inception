@@ -14,8 +14,8 @@ if [ $? -eq 0 ]; then
 	echo "env[MARIADB_DB] = \$MARIADB_DB" >> $target
 fi
 
-#if [ ! -f "wp-config.php" ]; then
-#	cp /config/wp-config.php ./wp-config.php
+if [ ! -f "wp-config.php" ]; then
+	cp /config/wp-config ./wp-config.php
 
 	sleep 5 
 
@@ -26,8 +26,8 @@ fi
 	fi
 
 # Configuration du site wordpress
-wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_ADMIN_USER" \
-    --admin_password="$WP_ADMIN_PWD" --admin_email="$WP_ADMIN_EMAIL" --skip-email
+	wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_ADMIN_USER" \
+    	--admin_password="$WP_ADMIN_PWD" --admin_email="$WP_ADMIN_EMAIL" --skip-email
 
 	#wp plugin install redis-cache --activate
 	wp plugin update --all
@@ -44,7 +44,7 @@ wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_ADMIN_USER
 	# Creation d'un article pour l'example
 	wp post generate --count=5 --post_title="malatini"
 	#wp redis enable
-#fi
+fi
 
 # On a besoin de ca pour faire tourner wordpress mais aussi pour que le container keep running
 php-fpm7 --nodaemonize
