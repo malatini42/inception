@@ -30,11 +30,9 @@ COPY	./config/wp-config.php ./wp-config.php
 
 # On copie le script entrypoint 
 COPY	./scripts/entrypoint.sh .
-# COPY	./scripts/init.sh .
 
 # Ajout des droits d execution sur le script entrypoint
 RUN		chmod +x entrypoint.sh
-# RUN		chmod +x init.sh
 
 #On passe par un entrypoint pour eviter les hacky path
 ENTRYPOINT ["sh", "./entrypoint.sh"]

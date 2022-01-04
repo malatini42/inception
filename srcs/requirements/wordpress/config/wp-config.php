@@ -1,5 +1,5 @@
 <?php
-# Fichier de configuration necessaire de wordpress
+# Fichier de configuration necessaire de wordpress avec le strict minimum
 
 /** Database **/
 define( 'DB_NAME', getenv('MARIADB_DB') );
@@ -29,17 +29,15 @@ define('SECURE_AUTH_SALT', '22@6,} Y-Ul@;~z*#{8g+{1gm4aB+ wQws*ky3Gpgi/E{:5!f_yJ
 define('LOGGED_IN_SALT',   'iQ0&>`$]A9pR[lKi &55?{T@-^g},e(kkuV]{uPaTk;U2r!r6v]o-DLnfeg-TKAG');
 define('NONCE_SALT',       '9QC%D_ !h~+c614K#*c-~yKtrru^=r;#k0mC]m&?[s@c;Z2rJ!Q|K%[xC,1:=&Wq');
 
-#Prefix des tables de la base de donnees 
+# Prefix des tables de la base de donnees 
 $table_prefix = 'wp_';
 
-#Va permet de fonctionnalites de debug
+# Va permet de fonctionnalites de debug
 define( 'WP_DEBUG', true);
 
-/** Absolute path to the WordPress directory. */
+# Vont permettre de rooter/afficher le index.php
 if ( ! defined( 'ABSPATH' ) ) {
         define( 'ABSPATH', __DIR__ . '/' );
 }
 
-/** Sets up WordPress vars and included files. */
-/** Etape cruciale sinon la page ne pourra pas s'afficher */
 require_once ABSPATH . 'wp-settings.php';
