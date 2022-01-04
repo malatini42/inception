@@ -1,5 +1,8 @@
 version: '3'
 
+# Le fichier docker-compose va permettre de definir les services, les volumes et les networks
+
+# docker volume ls
 volumes:
   mariadb-volume:
     driver: local
@@ -14,9 +17,9 @@ volumes:
       type: volume
       o: bind
 
+# docker network ls 
 networks:
-  mariadb-network:
-  nginx-network:
+  inception-network:
 
 services:
   nginx:
@@ -27,7 +30,7 @@ services:
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
-      - nginx-network
+      - inception-network
     ports:
       - "443:443"
     restart: unless-stopped
@@ -40,7 +43,8 @@ services:
     volumes:
       - mariadb-volume:/var/lib/mysql
     networks:
-      - mariadb-network
+      - inception-network
+    #Variable interpolation
     environment:
       - MARIADB_ROOT_PWD=${MARIADB_ROOT_PWD}
       - MARIADB_DB=${MARIADB_DB}
@@ -58,8 +62,7 @@ services:
     volumes:
       - wordpress-volume:/var/www/wordpress
     networks:
-      - nginx-network
-      - mariadb-network
+      - inception-network
     environment: 
       - WP_URL=${WP_URL}
       - WP_DATABASE=${WP_DATABASE}

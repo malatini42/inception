@@ -3,7 +3,7 @@ FROM	alpine:3.13
 
 # Mise a jour du gestionnaire de paquet + telechargements des outils
 RUN		apk update
-RUN		apk add --no-cache --quiet --update curl
+RUN		apk add --no-cache --quiet --update curl bash
 RUN		apk add --no-cache --quiet --update mariadb-client
 RUN		apk add --no-cache --quiet --update php7 php7-phar \
 			php7-json php7-curl php7-fpm php7-mysqli
@@ -30,9 +30,11 @@ COPY	./config/wp-config.php ./wp-config.php
 
 # On copie le script entrypoint 
 COPY	./scripts/entrypoint.sh .
+# COPY	./scripts/init.sh .
 
 # Ajout des droits d execution sur le script entrypoint
 RUN		chmod +x entrypoint.sh
+# RUN		chmod +x init.sh
 
-#On passe par un entrypoint pour eviter les hacky path, sera execute au build uniquement
-ENTRYPOINT [ "sh", "./entrypoint.sh" ]
+#On passe par un entrypoint pour eviter les hacky path
+ENTRYPOINT ["sh", "./entrypoint.sh"]
