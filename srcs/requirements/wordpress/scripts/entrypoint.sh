@@ -14,16 +14,17 @@ if [ $? -eq 0 ]; then
 	echo "env[MARIADB_DB] = \$MARIADB_DB" >> $target
 fi
 
+# Va permettre d'eviter de lancer ce script php systematiquement ?
 if [ ! -f "wp-config.php" ]; then
 	cp /config/wp-config ./wp-config.php
 
 	sleep 5 
 
-	if ! mysqladmin -h $MARIADB_HOST -u $MARIADB_USER \
-		--password=$MARIADB_PWD --wait=60 ping > /dev/null; then
-		printf "MySQL is not available.\n"
-		exit 1
-	fi
+	# if ! mysqladmin -h $MARIADB_HOST -u $MARIADB_USER \
+	# 	--password=$MARIADB_PWD --wait=60 ping > /dev/null; then
+	# 	printf "MySQL is not available.\n"
+	# 	exit 1
+	# fi
 
 # Configuration du site wordpress
 	wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_ADMIN_USER" \
