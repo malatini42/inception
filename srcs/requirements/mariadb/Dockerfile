@@ -8,7 +8,7 @@ RUN		apk update
 RUN		apk add --no-cache --quiet --update mariadb mariadb-client vim
 
 # Creation du dossier pour le daemon
-RUN mkdir -p /var/lib/mysqld /run/mysqld
+RUN 	mkdir -p /var/lib/mysqld /run/mysqld
 
 # Execution du script de creation de la base de donnees
 COPY	./config/create_db.sql /tmp/create_db.sql
