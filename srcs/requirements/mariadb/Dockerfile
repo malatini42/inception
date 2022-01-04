@@ -5,7 +5,7 @@ FROM	alpine:3.13
 RUN		apk update
 
 # Installation de mariadb et mariadb client
-RUN		apk add --no-cache --quiet --update mariadb mariadb-client
+RUN		apk add --no-cache --quiet --update mariadb mariadb-client vim
 
 # Creation du dossier pour le daemon
 RUN mkdir -p /var/lib/mysqld /run/mysqld
@@ -15,6 +15,8 @@ COPY	./config/create_db.sql /tmp/create_db.sql
 
 # Copie du script entrypoint sur le container
 COPY	./scripts/entrypoint.sh ./
+
+COPY 	./config/mariadb-server.cnf /etc/my.cnf.d/
 
 RUN 	chmod +x ./entrypoint.sh
 
