@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 	touch .setup
 fi
 
-usr/bin/mysqld_safe #--datadir=/var/lib/mysql
+usr/bin/mysqld_safe --datadir=/var/lib/mysql
 
 # Une fois dans le container, on pourra
 # mysql -u root -p (puis rentrer root_pwd)

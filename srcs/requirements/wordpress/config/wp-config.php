@@ -1,6 +1,8 @@
 <?php
 # Fichier de configuration necessaire de wordpress avec le strict minimum
 
+define('WP_CACHE', true);
+
 /** Database **/
 define( 'DB_NAME', getenv('MARIADB_DB') );
 
@@ -33,7 +35,7 @@ define('NONCE_SALT',       '9QC%D_ !h~+c614K#*c-~yKtrru^=r;#k0mC]m&?[s@c;Z2rJ!Q|
 $table_prefix = 'wp_';
 
 # Va permet de fonctionnalites de debug
-define( 'WP_DEBUG', true);
+define( 'WP_DEBUG', false);
 
 # Vont permettre de rooter/afficher le index.php
 if ( ! defined( 'ABSPATH' ) ) {
