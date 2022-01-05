@@ -3,10 +3,11 @@ DOCKER			= docker
 COMPOSE 		= cd srcs/ && docker-compose
 DATA_PATH 		= /home/malatini/data
 
-.PHONY : all build up down pause unpause clean fclean re
+.PHONY : all build up down pause unpause clean fclean re correc
 
 # Handling DNS issues, build services and start containers
-all		:	build
+all		:	
+			build
 			sudo mkdir -p $(DATA_PATH)
 # Seront utilises pour les volumes (les donnees seront ici sur l'hote)
 			sudo mkdir -p $(DATA_PATH)/wordpress
@@ -50,3 +51,10 @@ fclean	:	clean
 
 # $(DOCKER) volume prune --force
 re		:	fclean all
+
+# A lancer pour la correction
+# docker stop $(docker ps -aq)
+# docker rm $(docker ps -qa)
+# docker rmi -f $(docker images -qa)
+# docker volume rm $(docer volume ls -qa)
+# docker network rm $(docker network ls -q) >/dev/null

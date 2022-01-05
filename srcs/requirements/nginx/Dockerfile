@@ -26,5 +26,6 @@ COPY	config/nginx.conf /etc/nginx/conf.d/default.conf
 # Exposition du seul port autorise par le sujet
 EXPOSE	443
 
-# Lancement de nginx en background (les logs seront /var/log/nginx) pour que le container ne se stop pas
+# Lancement de nginx en premier plan et non en background (les logs seront dans /var/log/nginx) 
+# pour que le container ne se stop pas
 CMD	[ "nginx", "-g", "daemon off;" ]

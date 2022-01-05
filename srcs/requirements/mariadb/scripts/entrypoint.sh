@@ -12,7 +12,7 @@ if [ $? -ne 0 ]; then
 	eval "echo \"$(cat /tmp/create_db.sql)\"" | mariadb
 	touch .setup
 fi
-
+# Lancement du serveur mysql de facon la plus securisee sur Uinix
 usr/bin/mysqld_safe --datadir=/var/lib/mysql
 
 # Une fois dans le container, on pourra
