@@ -12,9 +12,6 @@ RUN		apk add --no-cache --quiet --update php7 php7-phar \
 # On cree le dossier "standard"
 RUN		mkdir -p /var/www/wordpress 
 
-# Va accueillir l'entrypoint, ira chercher le script wp-config
-# RUN 	mkdir -p /usr/local/bin/wp
-
 # Telecharger de la wordpress cli + ajout des droits d execution puisque c est une commande
 RUN		curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 			--output /usr/bin/wp 

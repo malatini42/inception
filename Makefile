@@ -1,9 +1,10 @@
 SRCS 			= ./srcs
-DOCKER			= sudo docker
-COMPOSE 		= cd srcs/ && sudo docker-compose
+DOCKER			= docker
+COMPOSE 		= cd srcs/ && docker-compose
 DATA_PATH 		= /home/malatini/data
 
-.PHONY : all
+.PHONY : all build up down pause unpause clean fclean re
+
 # Handling DNS issues, build services and start containers
 all		:	build
 			sudo mkdir -p $(DATA_PATH)
@@ -15,37 +16,30 @@ all		:	build
 			sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
 			$(COMPOSE) up -d
 
-.PHONY : build
 #build or rebuild services
 build	:
 			$(COMPOSE) build
 
-.PHONY : up
 # Creates and start containers
 up:
 			${COMPOSE} up -d 
 
-.PHONY : down
 # Stops containers and removes containers, networks, volumes, and images created by up
 down	:
 			$(COMPOSE) down
 
-.PHONY : pause
 # Pause containers
 pause:
 			$(COMPOSE) pause
 
-.PHONY : unpause
 # Unpause containers 
 unpause:
 			$(COMPOSE) unpause
 
-.PHONY : clean
 # down and make sure every containers are deleted
 clean	:
 			$(COMPOSE) down -v --rmi all --remove-orphans
 
-.PHONY : fclean
 # cleans and makes sure every volumes, networks and image are deleted
 fclean	:	clean
 			$(DOCKER) system prune --volumes --all --force
@@ -54,6 +48,5 @@ fclean	:	clean
 			echo docker volume rm $(docker volume ls -q)
 			$(DOCKER) image prune --force
 
-.PHONY : re
 # $(DOCKER) volume prune --force
 re		:	fclean all
