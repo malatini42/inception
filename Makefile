@@ -6,8 +6,7 @@ DATA_PATH 		= /home/malatini/data
 .PHONY : all build up down pause unpause clean fclean re correc
 
 # Handling DNS issues, build services and start containers
-all		:	
-			build
+all		:	build
 			sudo mkdir -p $(DATA_PATH)
 # Seront utilises pour les volumes (les donnees seront ici sur l'hote)
 			sudo mkdir -p $(DATA_PATH)/wordpress
