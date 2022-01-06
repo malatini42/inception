@@ -1,5 +1,5 @@
 # Utilisation de l image la plus legere
-FROM	alpine:3.13
+FROM	alpine:3.14
 
 # Mise a jour du gestionnaire de paquet + telechargements des outils
 # php7-iconv est necessaire pour acceder a la partie wp-admin

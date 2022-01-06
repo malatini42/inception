@@ -1,5 +1,5 @@
 # Depuis l'image la plus legere
-FROM	alpine:3.13
+FROM	alpine:3.14
 
 # Mise a jour du gestionnaire de paquet, bonne pratique
 RUN		apk update

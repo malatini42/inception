@@ -1,5 +1,5 @@
 # La version 3.15 bug avec ces commandes
-FROM	alpine:3.13
+FROM	alpine:3.14
 
 # Mise a jour du gestionnaire de paquet
 RUN		apk update
