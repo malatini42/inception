@@ -6,8 +6,8 @@ FROM	alpine:3.14
 RUN		apk update
 RUN		apk add --no-cache --quiet --update curl bash vim
 RUN		apk add --no-cache --quiet --update mariadb-client
-RUN		apk add --no-cache --quiet --update php7 php7-phar \
-			php7-json php7-curl php7-fpm php7-mysqli php7-iconv
+RUN		apk add --no-cache --quiet --update php7 php-phar \
+			php-json php-curl php-fpm php-mysqli php-iconv
 
 # On cree le dossier "standard"
 RUN		mkdir -p /var/www/wordpress 

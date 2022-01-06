@@ -1,4 +1,4 @@
-pkill mysqld mysqld_safe
+#pkill mysqld mysqld_safe
 
 cat .setup 2> /dev/null
 if [ $? -ne 0 ]; then
@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 
 	eval "echo \"$(cat /tmp/create_db.sql)\"" | mariadb
 	touch .setup
-	pkill mariadb
+	#pkill mariadb
 fi
 # Lancement du serveur mysql de facon la plus securisee sur Uinix
 usr/bin/mysqld_safe --datadir=/var/lib/mysql
