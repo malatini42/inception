@@ -2,6 +2,7 @@
 target="/etc/php7/php-fpm.d/www.conf"
 
 # On aurait aussi pu reprendre le fichier dans notre dossier config plutot que de fonctionner comme ca
+# Le fichier www.conf est relatif a php-fpm (necessaire communication avec le serveur)
 grep -E "listen = 127.0.0.1" $target > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 	sed -i "s|.*listen = 127.0.0.1.*|listen = 9000|g" $target
@@ -15,6 +16,8 @@ fi
 if [ ! -f "wp-config.php" ]; then
 	cp /config/wp-config ./wp-config.php
 
+	# Necessaire de laisser un temps d attente sinon les etapes suivantes seront skippees
+	# La connexion a la base de donnees se fait dans ce temps
 	sleep 5 
 
 	# Configuration du site wordpress

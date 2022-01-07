@@ -5,17 +5,6 @@ DATA_PATH 		= /home/malatini/data
 
 .PHONY : all build up down pause unpause clean fclean re correc
 
-# Handling DNS issues, build services and start containers
-all		:	build
-			sudo mkdir -p $(DATA_PATH)
-# Seront utilises pour les volumes (les donnees seront ici sur l'hote)
-			sudo mkdir -p $(DATA_PATH)/wordpress
-			sudo mkdir -p $(DATA_PATH)/database
-# Va permettre d'acceder a https://malatini.42.fr en local
-			sudo chmod 777 /etc/hosts
-			sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
-			$(COMPOSE) up -d
-
 #build or rebuild services
 build	:
 			$(COMPOSE) build
@@ -51,9 +40,22 @@ fclean	:	clean
 # $(DOCKER) volume prune --force
 re		:	fclean all
 
-# A lancer pour la correction
-# docker stop $(docker ps -aq)
-# docker rm $(docker ps -qa)
-# docker rmi -f $(docker images -qa)
-# docker volume rm $(docer volume ls -qa)
-# docker network rm $(docker network ls -q) >/dev/null
+# Demande dans la fiche de correction
+correc	:
+			docker stop $(docker ps -qa) 2>/dev/null
+			docker rm $(docker ps -qa) 2>/dev/null
+			docker rmi -f $(docker images -qa) 2>/dev/null
+			docker volume rm $(docker volume ls -q) 2>/dev/null
+			docker network rm $(docker ls -q)
+
+# Handling DNS issues, build services and start containers
+all		:	build
+			sudo mkdir -p $(DATA_PATH)
+# Seront utilises pour les volumes (les donnees seront ici sur l'hote)
+			sudo mkdir -p $(DATA_PATH)/wordpress
+			sudo mkdir -p $(DATA_PATH)/database
+# Va permettre d'acceder a https://malatini.42.fr en local
+			sudo chmod 777 /etc/hosts
+			sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
+			sudo echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
+			$(COMPOSE) up -d

@@ -21,7 +21,6 @@ RUN		chmod +x ./usr/bin/wp
 
 # Telechargement de wordpress via la wp cli
 RUN		wp core download --path=/var/www/wordpress
-# --version=5.8.1
 
 # Modification du workdir
 WORKDIR /var/www/wordpress
