@@ -5,6 +5,7 @@ target="/etc/php7/php-fpm.d/www.conf"
 # Le fichier www.conf est relatif a php-fpm (necessaire communication avec le serveur)
 grep -E "listen = 127.0.0.1" $target > /dev/null 2>&1
 if [ $? -eq 0 ]; then
+	#On va remplacer la premiere partie par la deuxieme
 	sed -i "s|.*listen = 127.0.0.1.*|listen = 9000|g" $target
 	echo "env[MARIADB_HOST] = \$MARIADB_HOST" >> $target
 	echo "env[MARIADB_USER] = \$MARIADB_USER" >> $target

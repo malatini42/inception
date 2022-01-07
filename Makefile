@@ -3,7 +3,7 @@ DOCKER			= docker
 COMPOSE 		= cd srcs/ && docker-compose
 DATA_PATH 		= /home/malatini/data
 
-.PHONY : all build up down pause unpause clean fclean re correc
+.PHONY : all build up down pause unpause clean fclean re 
 
 #build or rebuild services
 build	:
@@ -41,12 +41,12 @@ fclean	:	clean
 re		:	fclean all
 
 # Demande dans la fiche de correction
-correc	:
-			docker stop $(docker ps -qa) 2>/dev/null
-			docker rm $(docker ps -qa) 2>/dev/null
-			docker rmi -f $(docker images -qa) 2>/dev/null
-			docker volume rm $(docker volume ls -q) 2>/dev/null
-			docker network rm $(docker ls -q)
+# correc	:
+# 			@ sudo docker stop $(docker ps -qa)
+# 			@ sudo docker rm $(docker ps -qa) 
+# 			@ sudo docker rmi -f $(docker images -qa)
+# 			@ sudo docker volume rm $(docker volume ls -q)
+# 			@ sudo docker network rm $(docker ls -q)
 
 # Handling DNS issues, build services and start containers
 all		:	build
