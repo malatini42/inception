@@ -1,6 +1,15 @@
 # inception 📚
 
----
+inception - 2022 (Common Core).
+
+❗️ Will only work on Linux OS (42 VM)
+
+- Actual Status : validated.
+- Result        : 100% (validated 07/01/2022)
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
+![Alt text](/inception.png?raw=true "Inception")
 
 Effectuer eventuellement les commandes suivantes sur l'host par precaution (a priori pas besoin)
 
@@ -12,22 +21,14 @@ sudo service apache2 stop
 sudo service mysql stop
 ```
 
----
-
 Documentations lues :
 
 [https://wiki.alpinelinux.org/wiki/MariaDB](https://wiki.alpinelinux.org/wiki/MariaDB)
-
 [https://www.isicca.com/fr/lemp-installer-nginx-php7-mariadb/](https://www.isicca.com/fr/lemp-installer-nginx-php7-mariadb/)
-
 [https://www.nginx.com/blog/installing-wordpress-with-nginx-unit/](https://www.nginx.com/blog/installing-wordpress-with-nginx-unit/)
-
 [https://tech.osteel.me/posts/docker-for-local-web-development-part-1-a-basic-lemp-stack](https://tech.osteel.me/posts/docker-for-local-web-development-part-1-a-basic-lemp-stack)
-
 [https://grafikart.fr/tutoriels/dns-fonctionnement-1061#autoplay](https://grafikart.fr/tutoriels/dns-fonctionnement-1061#autoplay)
-
 [https://vsupalov.com/docker-arg-env-variable-guide/](https://vsupalov.com/docker-arg-env-variable-guide/)
-
 [https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose-on-ubuntu-20-04)
 
 **Installer docker-compose**:
