@@ -3,8 +3,6 @@ DOCKER			= sudo docker
 COMPOSE 		= cd srcs/ && sudo docker-compose
 DATA_PATH 		= /home/malatini/data
 
-.PHONY : all build up down pause unpause clean fclean re
-
 all		:	build
 			sudo mkdir -p $(DATA_PATH)
 			sudo mkdir -p $(DATA_PATH)/wordpress
@@ -21,7 +19,7 @@ build	:
 
 # Creates and start containers
 up:
-			${COMPOSE} up -d 
+			${COMPOSE} up -d
 
 # Stops containers and removes containers, networks, volumes, and images created by up
 down	:
@@ -31,7 +29,7 @@ down	:
 pause:
 			$(COMPOSE) pause
 
-# Unpause containers 
+# Unpause containers
 unpause:
 			$(COMPOSE) unpause
 
@@ -50,10 +48,11 @@ fclean	:	clean
 # $(DOCKER) volume prune --force
 re		:	fclean all
 
-# Demande dans la fiche de correction
-# correc	:
+# Demandé dans la fiche de correction
 # 			@ sudo docker stop $(docker ps -qa)
-# 			@ sudo docker rm $(docker ps -qa) 
+# 			@ sudo docker rm $(docker ps -qa)
 # 			@ sudo docker rmi -f $(docker images -qa)
 # 			@ sudo docker volume rm $(docker volume ls -q)
 # 			@ sudo docker network rm $(docker ls -q)
+
+.PHONY : all build up down pause unpause clean fclean re
