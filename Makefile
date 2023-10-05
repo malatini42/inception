@@ -1,16 +1,23 @@
 SRCS 			= ./srcs
-DOCKER			= sudo docker
-COMPOSE 		= cd srcs/ && sudo docker-compose
-DATA_PATH 		= /home/malatini/data
+DOCKER			= docker
+COMPOSE 		= cd srcs/ && sudo docker compose
+DATA_PATH_VM 	= /home/malatini/data
+DATA_PATH		= /Users/mahautlatinis/Desktop/inception_tmp
+HOST_MAC		= /private/etc/hosts
+HOST_LINUX 		= /etc/hosts
 
 all		:	build
-			sudo mkdir -p $(DATA_PATH)
-			sudo mkdir -p $(DATA_PATH)/wordpress
-			sudo mkdir -p $(DATA_PATH)/database
-			sudo chmod 777 /etc/hosts
-			sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
-			sudo echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
+			mkdir -p $(DATA_PATH)
+			sudo mkdir -p /var/www/wordpress
+			sudo chmod 777 /var/www/wordpress
+			mkdir -p $(DATA_PATH)/wordpress
+			mkdir -p $(DATA_PATH)/database
 			$(COMPOSE) up -d
+
+# all it to all rules with HOST_OS (your os Linux / Mac) for correction
+# sudo chmod 777 $(HOST_MAC)
+# sudo echo "127.0.0.1 malatini.42.fr" >> $(HOST_MAC)
+# sudo echo "127.0.0.1 www.malatini.42.fr" >> $(HOST_MAC)
 
 
 #build or rebuild services
@@ -40,7 +47,6 @@ clean	:
 # cleans and makes sure every volumes, networks and image are deleted
 fclean	:	clean
 			$(DOCKER) system prune --volumes --all --force
-			sudo rm -rf $(DATA_PATH)
 			$(DOCKER) network prune --force
 			echo docker volume rm $(docker volume ls -q)
 			$(DOCKER) image prune --force

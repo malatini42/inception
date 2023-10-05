@@ -18,7 +18,7 @@ COPY	./scripts/entrypoint.sh ./
 
 COPY 	./config/mariadb-server.cnf /etc/my.cnf.d/
 
-RUN 	chmod +x ./entrypoint.sh
+# RUN 	chmod +x ./entrypoint.sh
 
 # Installation de la base de donnee effective et authentification
 RUN		mariadb-install-db --datadir=/var/lib/mysql \

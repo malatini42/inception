@@ -6,13 +6,13 @@ volumes:
   mariadb-volume:
     driver: local
     driver_opts:
-      device: /home/malatini/data/database
+      device: /Users/mahautlatinis/Desktop/inception_tmp/database
       type: volume
       o: bind
   wordpress-volume:
     driver: local
     driver_opts:
-      device: /home/malatini/data/wordpress
+      device: /Users/mahautlatinis/Desktop/inception_tmp/wordpress
       type: volume
       o: bind
 
@@ -40,10 +40,10 @@ services:
       context: ./requirements/mariadb
     image: img_mariadb
     volumes:
-      - mariadb-volume:/var/lib/mysql
+      - mariadb-volume:/usr/local/mysql/data
+      # on linux it should be : mariadb-volume:/var/lib/mysql
     networks:
       - inception-network
-    #Variable interpolation
     environment:
       - MARIADB_ROOT_PWD=${MARIADB_ROOT_PWD}
       - MARIADB_DB=${MARIADB_DB}
@@ -59,7 +59,7 @@ services:
       context: ./requirements/wordpress
     image: img_wordpress
     volumes:
-      - wordpress-volume:/var/www/wordpress
+     - wordpress-volume:/var/www/wordpress
     networks:
       - inception-network
     environment: 
