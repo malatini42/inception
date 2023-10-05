@@ -14,24 +14,20 @@ if [ ! -f "wp-config.php" ]; then
 
 	sleep 5
 
-	#sudo chmod +x /usr/bin/wp
-	sleep 15
-	#sudo ./usr/local/bin/wp core download --path=/var/www/wordpress --debug
-	sleep 30
+	sudo chmod +x /usr/bin/wp
+	
+	sudo ./usr/local/bin/wp core download --path=/var/www/wordpress --debug
 
-	# Configuration du site wordpress
-	# wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_ADMIN_USER" \
-    # 	--admin_password="$WP_ADMIN_PWD" --admin_email="$WP_ADMIN_EMAIL" --skip-email
+	wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_ADMIN_USER" \
+     	--admin_password="$WP_ADMIN_PWD" --admin_email="$WP_ADMIN_EMAIL" --skip-email
 
-	# wp plugin update --all
+	wp plugin update --all
 
-	# Installation de notre theme et "activation"
-	# wp theme install twentysixteen --activate
+	wp theme install twentysixteen --activate
 
-	# wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_USER_PWD
+	wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_USER_PWD
 
-	# Creation d'un article pour l'example
-	# wp post generate --count=5 --post_title="malatini"
+	wp post generate --count=5 --post_title="malatini"
 fi
 
 php-fpm7 --nodaemonize

@@ -1,22 +1,19 @@
 version: '3'
-# Le fichier docker-compose va permettre de definir les services, les volumes et les networks
 
-# docker volume ls
 volumes:
   mariadb-volume:
     driver: local
-    driver_opts:
-      device: /Users/mahautlatinis/Desktop/inception_tmp/database
-      type: volume
-      o: bind
+    # driver_opts:
+      # device: /Users/mahautlatinis/Desktop/inception_tmp/database
+      # type: volume
+      # o: bind
   wordpress-volume:
     driver: local
-    driver_opts:
-      device: /Users/mahautlatinis/Desktop/inception_tmp/wordpress
-      type: volume
-      o: bind
+    # driver_opts:
+      # device: /Users/mahautlatinis/Desktop/inception_tmp/wordpress
+      # type: volume
+      # o: bind
 
-# docker network ls 
 networks:
   inception-network:
 
@@ -41,7 +38,6 @@ services:
     image: img_mariadb
     volumes:
       - mariadb-volume:/usr/local/mysql/data
-      # on linux it should be : mariadb-volume:/var/lib/mysql
     networks:
       - inception-network
     environment:
