@@ -9,8 +9,8 @@ all:			unix
 				${DOCKER_COMPOSE} up -d
 
 unix:
-				echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
-				echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
+				sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
+				sudo echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
 
 ls:
 				${DOCKER} ps -a
