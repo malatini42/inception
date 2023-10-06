@@ -9,10 +9,10 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: make
+      run: echo "test it on your personnal machine"

@@ -1,79 +1,57 @@
-version: '3'
-# Le fichier docker-compose va permettre de definir les services, les volumes et les networks
-
-# docker volume ls
-volumes:
-  mariadb-volume:
-    driver: local
-    driver_opts:
-      device: /home/malatini/data/database
-      type: volume
-      o: bind
-  wordpress-volume:
-    driver: local
-    driver_opts:
-      device: /home/malatini/data/wordpress
-      type: volume
-      o: bind
-
-# docker network ls 
+version: '3.8'
+ 
 networks:
-  inception-network:
+  backend:
 
 services:
   nginx:
     container_name: nginx
-    build:
-      context: ./requirements/nginx
+    build: ./requirements/nginx
     image: img_nginx
     volumes:
-      - wordpress-volume:/var/www/wordpress
+      - "~/Desktop/inception/website:/var/www/html"
     networks:
-      - inception-network
+      - backend
     ports:
       - "443:443"
-    restart: unless-stopped
-
-  mariadb:
-    container_name: mariadb
-    build:
-      context: ./requirements/mariadb
-    image: img_mariadb
-    volumes:
-      - mariadb-volume:/var/lib/mysql
-    networks:
-      - inception-network
-    #Variable interpolation
-    environment:
-      - MARIADB_ROOT_PWD=${MARIADB_ROOT_PWD}
-      - MARIADB_DB=${MARIADB_DB}
-      - MARIADB_USER=${MARIADB_USER}
-      - MARIADB_PWD=${MARIADB_PWD}
-    restart: unless-stopped
+    depends_on:
+      - wordpress
+    restart: always
 
   wordpress:
     container_name: wordpress
     depends_on:
       - mariadb
-    build:
-      context: ./requirements/wordpress
-    image: img_wordpress
+    build: ./requirements/wordpress
     volumes:
-      - wordpress-volume:/var/www/wordpress
+      - "~/Desktop/inception/website:/var/www/html"
     networks:
-      - inception-network
+      - backend
     environment: 
-      - WP_URL=${WP_URL}
-      - WP_DATABASE=${WP_DATABASE}
-      - WP_TITLE=${WP_TITLE}
-      - WP_ADMIN_USER=${WP_ADMIN_USER}
-      - WP_ADMIN_PWD=${WP_ADMIN_PWD}
-      - WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL}
-      - WP_USER=${WP_USER}
-      - WP_USER_PWD=${WP_USER_PWD}
-      - WP_USER_EMAIL=${WP_USER_EMAIL}
-      - MARIADB_HOST=${MARIADB_HOST}
-      - MARIADB_USER=${MARIADB_USER}
-      - MARIADB_PWD=${MARIADB_PWD}
-      - MARIADB_DB=${MARIADB_DB}
-    restart: unless-stopped
+      MYSQL_HOST:       ${MYSQL_HOST}
+      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
+      WP_DATABASE_USR:  ${WP_DATABASE_USR}
+      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+      DOMAIN_NAME:      ${DOMAIN_NAME}
+      WP_TITLE:         ${WP_TITLE}
+      WP_ADMIN_USR:     ${WP_ADMIN_USR}
+      WP_ADMIN_PWD:     ${WP_ADMIN_PWD}
+      WP_ADMIN_EMAIL:   ${WP_ADMIN_EMAIL}
+      WP_USR:           ${WP_USR}
+      WP_PWD:           ${WP_PWD}
+      WP_EMAIL:         ${WP_EMAIL}
+    restart: always
+
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    volumes:
+      - "~/Desktop/inception/mariadb:/var/lib/mysql"
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PWD:   ${MYSQL_ROOT_PWD}
+      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
+      WP_DATABASE_USR:  ${WP_DATABASE_USR}
+      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+    restart: always
