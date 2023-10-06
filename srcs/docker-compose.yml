@@ -1,21 +1,19 @@
-version: '3'
+version: '3.8'
  
 networks:
-  frontend:
   backend:
 
 services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx
-    #image: img_nginx
+    image: img_nginx
     volumes:
       - "~/Desktop/inception/website:/var/www/html"
     networks:
-      - frontend
+      - backend
     ports:
       - "443:443"
-      - "80:80"
     depends_on:
       - wordpress
     restart: always
@@ -24,14 +22,10 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
-    ports:
-      - "9000:9000"
     build: ./requirements/wordpress
-    #image: img_wordpress
     volumes:
       - "~/Desktop/inception/website:/var/www/html"
     networks:
-      - frontend
       - backend
     environment: 
       MYSQL_HOST:       ${MYSQL_HOST}
@@ -51,9 +45,6 @@ services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
-    #image: img_mariadb
-    ports:
-      - "3306:3306"
     volumes:
       - "~/Desktop/inception/mariadb:/var/lib/mysql"
     networks:
