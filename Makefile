@@ -4,13 +4,14 @@ DOCKER_COMPOSE	= docker-compose -f srcs/docker-compose.yml
 
 DOCKER			= docker
 
-all:			unix
+all:
 				${DOCKER_COMPOSE} build
 				${DOCKER_COMPOSE} up -d
 
+
 unix:
-				sudo echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
-				sudo echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
+				echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
+				echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
 
 ls:
 				${DOCKER} ps -a
