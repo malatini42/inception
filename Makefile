@@ -9,6 +9,7 @@ all:
 				${DOCKER_COMPOSE} up -d
 
 
+# Add it in your all rule
 unix:
 				echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
 				echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
