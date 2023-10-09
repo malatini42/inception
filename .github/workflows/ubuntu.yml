@@ -1,4 +1,4 @@
-name: Makefile CI
+name: Ubuntu CI
 
 on:
   push:
@@ -9,10 +9,10 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: echo "test it on your personnal machine"
+      run: make; echo "test it on your personnal machine"
