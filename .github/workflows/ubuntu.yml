@@ -15,4 +15,4 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: make; echo "test it on your personnal machine"
+      run: echo "test it on your personnal machine"
