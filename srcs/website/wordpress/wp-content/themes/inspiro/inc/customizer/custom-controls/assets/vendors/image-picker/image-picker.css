@@ -1,0 +1,62 @@
+/* Hides the radio button */
+.customize-control-image-select input[type="radio"],
+.customize-control-promo-pro input[type="radio"] {
+    visibility: hidden;
+    position: absolute;
+}
+
+/* Makes images look clickable */
+.customize-control-image-select img,
+.customize-control-promo-pro img {
+    box-sizing: border-box;
+    cursor: pointer;
+    height: auto;
+    max-width: 100%;
+	border: 1px solid #E0E0E0;
+	border-radius:4px;
+	margin-bottom:5px;
+}
+
+/* Adds blue border around currently selected image */
+.customize-control-image-select input:checked + img {
+	border: 2px solid #2196F3;
+}
+.customize-control-image-select input:disabled + img,
+.customize-control-promo-pro input:disabled + img {
+	cursor:default !important;
+}
+.wpzoom-image-select-container {
+	position:relative;
+	
+}
+.wpzoom-promo-container {
+	border:2px solid #F57C00;
+	border-radius: 4px;
+	padding:0 5px;
+	text-align: center;
+	position: relative;
+	padding-bottom: 5px;
+}
+.wpzoom-promo-container .customize-control-title {
+	display: inline-block;
+	color:#fff;
+	font-size: 13px;
+	background-color: #F57C00;
+	border-radius: 2px;
+	padding:3px 4px;
+	position: relative;
+	top:-10px;
+}
+
+/* Promo PRO settings */
+.wpzoom-badge-pro {
+	display:block;
+	position:absolute;
+	top:1px;
+	right:1px;
+	padding:5px;
+	background:#F57C00;
+	color:#fff;
+	font-size:10px;
+	border-top-right-radius:4px;
+}

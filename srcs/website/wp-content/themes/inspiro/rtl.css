@@ -1,0 +1,28 @@
+/*
+Theme Name: Inspiro
+
+Adding support for languages written in a Right To Left (RTL) direction is easy,
+it's just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+https://codex.wordpress.org/Right-to-Left_Language_Support
+
+*/
+
+/* Reset */
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+th {
+	text-align: right;
+}
+
+/* Accessibility */
+
+.screen-reader-text:focus {
+	left: auto;
+	right: 5px;
+}

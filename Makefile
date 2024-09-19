@@ -1,14 +1,14 @@
 NAME			= inception
 
-DOCKER_COMPOSE	= docker-compose -f srcs/docker-compose.yml
+DOCKER_COMPOSE	= docker compose -f ./srcs/docker-compose.yml
 
 DOCKER			= docker
 
-all:			unix
+all:			macos
 				${DOCKER_COMPOSE} build
 				${DOCKER_COMPOSE} up -d
 
-unix:
+macos:
 				echo "127.0.0.1 malatini.42.fr" >> /etc/hosts
 				echo "127.0.0.1 www.malatini.42.fr" >> /etc/hosts
 
@@ -31,7 +31,6 @@ unpause:
 				${DOCKER_COMPOSE} unpause
 
 clean:			down
-				rm -rf ~/Desktop/inception
 				${DOCKER_COMPOSE} down -v --rmi all --remove-orphans
 
 fclean: 		clean
@@ -40,9 +39,3 @@ fclean: 		clean
 re:				fclean all
 
 .PHONY:			linux stop clean prune all build up
-
-# inspecter les logs 
-# docker logs <containerid>
-
-# "rentrer à l'interieur du container"
-# docker exec -it <containerid> sh

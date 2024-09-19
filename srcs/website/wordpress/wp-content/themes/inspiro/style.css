@@ -1,0 +1,23 @@
+/**
+Theme Name: Inspiro
+Theme URI: https://www.wpzoom.com/free-wordpress-themes/inspiro-lite/
+Author: WPZOOM
+Author URI: https://www.wpzoom.com/
+Description: Inspiro is a professional & lightweight photo and video-focused WordPress theme with a modern design. Packed with features including a fullscreen area that supports Vimeo, YouTube & self-hosted video background, Page Builder integration, Inspiro is perfect for showing off your photography and video portfolio. Moreover, the theme is compatible with WooCommerce and popular Page Builders such as Elementor, Beaver Builder. The theme is fully GDPR-compliant and doesn't use any external Google Fonts. All fonts are locally hosted. Learn more and check out our powerful PREMIUM version at https://www.wpzoom.com/themes/inspiro/
+Tags: one-column, two-columns, right-sidebar, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, e-commerce, wide-blocks, portfolio, blog, custom-background, featured-image-header, full-width-template, theme-options, block-styles, block-patterns
+Version: 1.9.2
+Requires at least: 6.0
+Requires PHP: 7.2
+Tested up to: 6.6
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: inspiro
+Domain Path: /languages/
+
+Inspiro is based on Twenty Seventeen https://wordpress.org/themes/twentyseventeen/, (C) 2012-2020 Automattic, Inc.
+Twenty Seventeen is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+
+/* Note: The CSS files are loaded from assets/css/ folder. */

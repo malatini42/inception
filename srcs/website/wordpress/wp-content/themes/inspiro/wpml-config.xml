@@ -1,0 +1,9 @@
+<wpml-config>
+    <admin-texts>
+        <key name="theme_mods_inspiro">
+            <key name="header_site_title"/>
+            <key name="header_site_description"/>
+            <key name="header_button_url"/>
+            <key name="header_button_title" /></key>
+    </admin-texts>
+</wpml-config>
