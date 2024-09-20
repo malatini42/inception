@@ -1,6 +1,6 @@
 networks:
   backend:
-    # driver: bridge
+    driver: bridge
 
 volumes:
   wordpress_data:
@@ -11,9 +11,8 @@ services:
     container_name: nginx
     build: ./requirements/nginx
     volumes:
-      - ./requirements/nginx/log:/var/log/nginx
-      #- ./requirements/nginx/:/etc/nginx/
-      - ./website:/var/www/html
+      - .~/Documents/inception/srcs/requirements/nginx/log:/var/log/nginx
+      - ~/Documents/inception/srcs/requirements/wordpress:/var/www/html
     networks:
       - backend
     ports:
@@ -30,13 +29,9 @@ services:
       - mariadb
     build: ./requirements/wordpress
     volumes:
-      - ./website:/var/www/html
+      - ~/Documents/inception/srcs/requirements/wordpress:/var/www/html
     networks:
       - backend
-    ports:
-      - '9000:9000'
-    expose:
-      - '9000'
     environment:
       MYSQL_HOST: ${MYSQL_HOST}
       WP_DATABASE_NAME: ${WP_DATABASE_NAME}
@@ -56,13 +51,9 @@ services:
     container_name: mariadb
     build: ./requirements/mariadb
     volumes:
-      - ./requirements/data:/var/lib/mysql
+      - ~/Documents/inception/srcs/requirements/mariadb/data:/var/lib/mysql
     networks:
       - backend
-    ports:
-      - '3306:3306'
-    expose:
-      - '3306'
     environment:
       MYSQL_ROOT_PWD: ${MYSQL_ROOT_PWD}
       WP_DATABASE_NAME: ${WP_DATABASE_NAME}

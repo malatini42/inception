@@ -1,0 +1,1691 @@
+# <!=Copyright (C) 2021 WPZOOM
+# This file is distributed under the GNU General Public License v2 or later.=!>
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Inspiro 1.4.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/inspiro-lite\n"
+"POT-Creation-Date: 2024-09-16 10:04+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: comments.php:30 inc/template-tags.php:136
+msgid "% Comments"
+msgstr ""
+
+#. %1$s: Comment date %2$s: Comment time
+#: inc/common-functions.php:313
+#, php-format
+msgid "%1$s @ %2$s"
+msgstr ""
+
+#. %s: Inspiro theme
+#: inc/admin-notice.php:96
+#, php-format
+msgid "%s Lite Dashboard &rarr;"
+msgstr ""
+
+#: inc/common-functions.php:351
+msgid "(Edit)"
+msgstr ""
+
+#. Used between list items, there is a space after the comma.
+#: inc/template-tags.php:20 inc/template-tags.php:70
+msgid ", "
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:219
+msgid "100 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:221
+msgid "200 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:223
+msgid "300 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:225
+msgid "400 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:227
+msgid "500 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:229
+msgid "600 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:231
+msgid "700 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:233
+msgid "800 Italic"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:235
+msgid "900 Italic"
+msgstr ""
+
+#: comments.php:50
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr ""
+
+#. %s: Post date.
+#: inc/template-tags.php:168 inc/template-tags.php:176
+#, php-format
+msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
+msgstr ""
+
+#: template-parts/header/site-branding.php:29
+msgid "[Edit]"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:193
+msgid "Able to migrate"
+msgstr ""
+
+#: inc/admin-notice.php:50 inc/classes/class-inspiro-notices.php:126
+msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: inc/common-functions.php:96 inc/common-functions.php:108
+#: inc/common-functions.php:120 inc/common-functions.php:132
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: inc/common-functions.php:84
+msgid ""
+"Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-hero-config.php:164
+msgid "Adjust gradient opacity"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:262
+msgid "All Headings (H1-H6)"
+msgstr ""
+
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:59
+msgid "Blog Layout"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-blog-post-panel-config.php:33
+msgid "Blog Post Options"
+msgstr ""
+
+#: inc/common-functions.php:82
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:32
+msgid "Blog Sidebar"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:193
+msgid "Blogname"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:33
+msgid "Body"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:230
+msgid "Bold 700"
+msgstr ""
+
+#: inc/template-tags.php:120 template-parts/footer/site-info.php:30
+msgid "by"
+msgstr ""
+
+#: comments.php:113
+msgid "Cancel"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:143
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:101
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:164
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:101
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:143
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:157
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:101
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:101
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:122
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:101
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:163
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:156
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:156
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:101
+msgid "Capitalize"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:191
+msgid "Center menu with Logo Center"
+msgstr ""
+
+#: inc/classes/class-inspiro-notices.php:130
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:82
+msgid "Choose if you want to show the Featured Image in the header"
+msgstr ""
+
+#: inc/customizer/custom-controls/font-presets/class-inspiro-customize-font-presets-control.php:36
+msgid "Choosing a preset will override all the font settings."
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:158
+msgid ""
+"Click the \"Replace active with uploaded\" button below to complete the "
+"installation"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Background"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Foreground"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Header & Footer"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Light Background"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "LightGrey"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-scheme-config.php:59
+msgid "Color Scheme"
+msgstr ""
+
+#: comments.php:71
+msgid "Comments are closed."
+msgstr ""
+
+#: inc/template-tags.php:138
+msgid "Comments are Disabled"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-content-config.php:31
+msgid "Content"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:232
+msgid "Content Link color"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:66
+msgid "Content to Display in Archive Pages"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-copyright-config.php:55
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-footer-config.php:124
+msgid "Copyright Text Color"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:127
+msgid "Create temporary custom post type Slider"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-scheme-config.php:63
+msgid "Custom"
+msgstr ""
+
+#: inc/customizer/configs/logo/class-inspiro-custom-logo-text-config.php:40
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:130
+msgid "Custom Logo Text"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:139
+msgid "Custom Logo Text on Hover"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-scheme-config.php:62
+msgid "Dark"
+msgstr ""
+
+#: inc/custom-header.php:55
+msgid "Default Header Image"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:158
+msgid "Default Style"
+msgstr ""
+
+#: inc/customizer/class-inspiro-customizer.php:472
+msgid "Default System Font"
+msgstr ""
+
+#: inc/admin-notice.php:85
+msgid "Discover Inspiro Lite!"
+msgstr ""
+
+#: inc/admin-notice.php:100
+msgid "Discover Inspiro Premium &rarr;"
+msgstr ""
+
+#: inc/admin-notice.php:75
+msgid "Dismiss this notice."
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:79
+msgid "Display the Featured Image in the Header"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:78
+msgid "Don't display Widgets"
+msgstr ""
+
+#: inc/common-functions.php:329
+msgid "Edit"
+msgstr ""
+
+#. %s: Post title.
+#: inc/template-tags.php:226
+#, php-format
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: comments.php:94
+msgid "Email Address:"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-media-config.php:69
+msgid "Enable Hero Area on the Homepage"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-media-config.php:79
+msgid "Enter a YouTube or Vimeo URL:"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:70
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:204
+msgid "Excerpt text"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-media-config.php:78
+msgid "External Header Video"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:232
+msgid "Extra-Bold 800"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:220
+msgid "Extra-Light 200"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:231
+msgid "Featured Image Height in Posts and Pages"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:235
+msgid "Fixed height"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:92
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:113
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:92
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:106
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:84
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:112
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:105
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:105
+msgid "Font Family"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:112
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:53
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:133
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:53
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:112
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:126
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:53
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:53
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:53
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:132
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:125
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:125
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:53
+msgid "Font Size (px)"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "36px"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "48px"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "60px"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "72px"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "xLarge"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Font size name"
+msgid "xSmall"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:124
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:76
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:145
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:76
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:124
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:138
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:76
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:76
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:76
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:144
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:137
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:137
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:76
+msgid "Font Weight"
+msgstr ""
+
+#: template-parts/footer/footer-widgets.php:26
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:40
+#: inc/customizer/configs/colors/class-inspiro-color-footer-config.php:95
+msgid "Footer"
+msgstr ""
+
+#: inc/common-functions.php:94
+msgid "Footer 1"
+msgstr ""
+
+#: inc/common-functions.php:106
+msgid "Footer 2"
+msgstr ""
+
+#: inc/common-functions.php:118
+msgid "Footer 3"
+msgstr ""
+
+#: inc/common-functions.php:130
+msgid "Footer 4"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-footer-config.php:106
+msgid "Footer Background"
+msgstr ""
+
+#: inc/common-functions.php:155
+msgid "Footer Instagram Bar"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:60
+msgid "Footer Layout"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:119
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:123
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:127
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:131
+msgid "Footer Pro"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-footer-config.php:115
+msgid "Footer Text Color"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:263
+msgid ""
+"For headings in the content only. To return to the default option, please "
+"publish the changes first."
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:94
+msgid "Four Columns"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:71
+msgid "Full Content"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-media-config.php:90
+msgid "Full Height on Mobile Devices"
+msgstr ""
+
+#: inc/customizer-functions.php:16
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:63
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:76
+msgid "Full width"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:223
+msgid "Full-width"
+msgstr ""
+
+#. Name of the template
+#: page-templates/full-width-builder-bb.php:2
+msgid "Full-width (Page Builder)"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:236
+msgid "Fullscreen"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:163
+msgid "General"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Gradient name"
+msgid "Black to Tertiary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Gradient name"
+msgid "Secondary to Light"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:157
+msgid "Hamburger Icon Color"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:118
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:43
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:138
+msgid "Header Layout"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:167
+msgid "Header Menu"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:218
+msgid "Header Menu Width"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:206
+msgid "Header options"
+msgstr ""
+
+#: inc/common-functions.php:142
+msgid "Header Social Icons"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:32
+msgid "Heading 1"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:32
+msgid "Heading 2"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:32
+msgid "Heading 3"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:32
+msgid "Heading 4"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:32
+msgid "Heading 5"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:32
+msgid "Heading 6"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:272
+msgid "Heading H1"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:281
+msgid "Heading H2"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:290
+msgid "Heading H3"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:299
+msgid "Heading H4"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:308
+msgid "Heading H5"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:317
+msgid "Heading H6"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:251
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:33
+msgid "Headings"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:95
+msgid "Hero Button"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-hero-config.php:146
+msgid "Hero Button Background Color on Hover"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-content-config.php:109
+msgid "Hero Button Text"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-hero-config.php:128
+msgid "Hero Button Text Color"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-hero-config.php:137
+msgid "Hero Button Text Color on Hover"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-content-config.php:119
+msgid "Hero Button URL"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-content-config.php:98
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:95
+msgid "Hero Description"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-hero-config.php:106
+msgid "Hero section"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-content-config.php:87
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:102
+msgid "Hero Title"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-hero-config.php:117
+msgid "Hero Title Text Color"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:170
+msgid "Hidden menu"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:257
+msgid "Hide the top main menu"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:258
+msgid ""
+"Hide the top main menu in desktop mode, displaying only the Hamburger icon"
+msgstr ""
+
+#: inc/classes/class-inspiro-notice-review.php:108
+msgid "Hide this notice"
+msgstr ""
+
+#. Name of the template
+#: page-templates/homepage-builder-bb.php:2
+msgid "Homepage (Page Builder)"
+msgstr ""
+
+#. Name of the template
+#: page-templates/homepage-no-hero.php:2
+msgid "Homepage (Without Hero Area)"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-panel-config.php:32
+msgid "Homepage Hero Area"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:33
+msgid "Homepage Hero Header"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://www.wpzoom.com/"
+msgstr ""
+
+#. URI of the theme
+msgid "https://www.wpzoom.com/free-wordpress-themes/inspiro-lite/"
+msgstr ""
+
+#: inc/admin-notice.php:99
+msgid ""
+"https://www.wpzoom.com/themes/inspiro/?"
+"utm_source=wpadmin&utm_medium=adminnotice&utm_campaign=welcome-banner"
+msgstr ""
+
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:32
+#, php-format
+msgid ""
+"If you want to display the Sidebar on the right, please make sure to add "
+"some widgets to the %s"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:160
+#, php-format
+msgid ""
+"If you're having issues with your front page or the hero area after the "
+"upgrade, make sure to check the theme <a href=\"%1$s\" target=\"_blank\" "
+"title=\"%2$s\">documentation</a> for setup instructions."
+msgstr ""
+
+#: inc/template-tags.php:28
+msgid "in"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:251
+#: inc/customizer/class-inspiro-customizer.php:453
+#: inc/customizer/custom-controls/font-variant/class-inspiro-customize-font-variant-control.php:88
+#: inc/customizer/custom-controls/typography/class-inspiro-customize-typography-control.php:104
+msgid "Inherit"
+msgstr ""
+
+#. Name of the theme
+#: patterns/team.php:14 patterns/section-with-video-background.php:14
+#: patterns/section-with-text-and-numbers.php:14 patterns/awards.php:14
+#: patterns/section-with-number.php:14 patterns/services.php:14
+#: patterns/contact-card-with-social-links.php:14
+#: patterns/section-with-3-columns.php:14 patterns/portfolio.php:14
+#: patterns/hero-with-video-lightbox.php:14 patterns/testimonials.php:14
+#: patterns/fullscreen-hero.php:14 patterns/list-of-posts.php:14
+#: patterns/pricing-table.php:14 inc/classes/class-inspiro-notice-review.php:83
+msgid "Inspiro"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"Inspiro is a professional &amp; lightweight photo and video-focused "
+"WordPress theme with a modern design. Packed with features including a "
+"fullscreen area that supports Vimeo, YouTube &amp; self-hosted video "
+"background, Page Builder integration, Inspiro is perfect for showing off "
+"your photography and video portfolio. Moreover, the theme is compatible with "
+"WooCommerce and popular Page Builders such as Elementor, Beaver Builder. The "
+"theme is fully GDPR-compliant and doesn't use any external Google Fonts. All "
+"fonts are locally hosted. Learn more and check out our powerful PREMIUM "
+"version at https://www.wpzoom.com/themes/inspiro/"
+msgstr ""
+
+#: patterns/contact-2.php:14 patterns/services-2.php:14
+#: patterns/homepage-with-hero-at-the-top.php:14 patterns/about-us.php:14
+#: patterns/homepage.php:14 patterns/about-us-dark.php:14
+#: patterns/about-2.php:14
+msgid "Inspiro Pages"
+msgstr ""
+
+#: inc/admin-notice.php:80
+msgid "Inspiro Premium"
+msgstr ""
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: template-parts/post/content-none.php:35
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: searchform.php:17
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: index.php:27
+msgid "Latest Posts"
+msgstr ""
+
+#: comments.php:112
+msgid "Leave a Comment"
+msgstr ""
+
+#: inc/classes/class-inspiro-notice-review.php:106
+msgid "Leave a Review"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:187
+msgid "Left menu with Logo Center"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-scheme-config.php:61
+msgid "Light"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:222
+msgid "Light 300"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:153
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:122
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:174
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:122
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:153
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:167
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:122
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:122
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:132
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:122
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:173
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:166
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:166
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:122
+msgid "Line Height"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:241
+msgid "Link color on hover"
+msgstr ""
+
+#. %1$s: admin url to profile %2$s: User identity %3$s: logout URL
+#: comments.php:111
+#, php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\">Log out?</a>"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:33
+msgid "Logo"
+msgstr ""
+
+#: inc/classes/class-inspiro-notice-review.php:87
+msgid "Love Inspiro Theme? Share a 5-Star Review! 🌟"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:145
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:166
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:145
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:159
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:124
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:165
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:158
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:158
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:103
+msgid "Lowercase"
+msgstr ""
+
+#: inc/classes/class-inspiro-after-setup-theme.php:113
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:103
+msgid "Main Menu"
+msgstr ""
+
+#: inc/common-functions.php:72
+msgid ""
+"Main sidebar that is displayed on the right and can be toggled by clicking "
+"on the menu icon."
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-media-config.php:91
+msgid ""
+"Make the video full height to remove the black borders at the top and bottom "
+"(experimental option)."
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-media-config.php:31
+msgid "Media"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:226
+msgid "Medium 500"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:33
+msgid "Menu"
+msgstr ""
+
+#: sidebar.php:27
+msgctxt "menu"
+msgid "Mobile Menu"
+msgstr ""
+
+#: template-parts/navigation/navigation-primary.php:29
+msgctxt "menu"
+msgid "Top Horizontal Menu"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:187
+msgid "Menu Background"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:197
+msgid "Menu Background on Scroll"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:166
+msgid "Menu on center"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:162
+msgid "Menu on left side"
+msgstr ""
+
+#: comments.php:107
+msgid "Message:"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:191
+msgid "Migrate settings for following blog site:"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:123
+msgid "Migrate the Customizer settings to Inspiro Premium"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:96
+msgid "Mobile Menu"
+msgstr ""
+
+#: comments.php:88
+msgid "Name:"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:222
+msgid "Narrow"
+msgstr ""
+
+#: comments.php:51
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: comments.php:30 inc/template-tags.php:134
+msgid "No Comments"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:72
+msgid "None"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:224
+msgid "Normal 400"
+msgstr ""
+
+#. %1$s: Documentation URL. %2$s: Link title.
+#: inc/classes/class-inspiro-theme-upgrader.php:160
+msgid "Note:"
+msgstr ""
+
+#: search.php:26 template-parts/post/content-none.php:18
+msgid "Nothing Found"
+msgstr ""
+
+#: inc/custom-header.php:60
+msgid "Ocean Header Image"
+msgstr ""
+
+#: inc/template-tags.php:37
+msgid "on"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:188
+msgid "On Homepage works only when the Hero Area is disabled or not shown"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:82
+msgid "One Column"
+msgstr ""
+
+#: comments.php:30 inc/template-tags.php:135
+msgid "One Comment"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:124
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:103
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:117
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:95
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:123
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:116
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:116
+msgid "Only selected Font Variants will be loaded from Google Fonts."
+msgstr ""
+
+#: 404.php:21
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-content-config.php:129
+msgid "Open link on new tab"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:160
+msgid "Open the Documentation"
+msgstr ""
+
+#. Name of the template
+#: page-templates/full-width-transparent.php:2
+msgid "Page Builder (Transparent Header, Without Title)"
+msgstr ""
+
+#. Name of the template
+#: page-templates/full-width-no-title.php:2
+msgid "Page Builder (Without Page Title)"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:186
+msgid "Page title"
+msgstr ""
+
+#. Name of the template
+#: page-templates/no-title.php:2
+msgid "Page without title"
+msgstr ""
+
+#: template-parts/page/content-page.php:61
+#: template-parts/post/content-gallery.php:43
+#: template-parts/post/content.php:44 template-parts/post/content-audio.php:56
+#: template-parts/post/content-video.php:56
+#: template-parts/post/content-image.php:35
+msgid "Pages:"
+msgstr ""
+
+#: patterns/team.php:2 patterns/section-with-video-background.php:2
+#: patterns/hero-with-button.php:2 patterns/section-with-text-and-numbers.php:2
+#: patterns/awards.php:2 patterns/section-with-2-columns.php:2
+#: patterns/section-with-number.php:2 patterns/services.php:2
+#: patterns/contact-2.php:2 patterns/contact-card-with-social-links.php:2
+#: patterns/section-with-text.php:2 patterns/contact.php:2
+#: patterns/contact-newsletter.php:2 patterns/section-with-3-columns.php:2
+#: patterns/portfolio.php:2 patterns/blog-posts.php:2 patterns/services-2.php:2
+#: patterns/hero-with-video-lightbox.php:2 patterns/testimonials.php:2
+#: patterns/homepage-with-hero-at-the-top.php:2 patterns/fullscreen-hero.php:2
+#: patterns/section-with-2-buttons.php:2 patterns/list-of-posts.php:2
+#: patterns/about-us.php:2 patterns/social-footer-cta.php:2
+#: patterns/homepage.php:2 patterns/call-to-action.php:2
+#: patterns/about-us-dark.php:2 patterns/hero-with-2-buttons.php:2
+#: patterns/about-2.php:2 patterns/pricing-table.php:2
+msgctxt "Pattern description"
+msgid ""
+msgstr ""
+
+#: patterns/about-2.php:2
+msgctxt "Pattern title"
+msgid "About #2"
+msgstr ""
+
+#: patterns/about-us.php:2
+msgctxt "Pattern title"
+msgid "About Us"
+msgstr ""
+
+#: patterns/about-us-dark.php:2
+msgctxt "Pattern title"
+msgid "About Us (Dark)"
+msgstr ""
+
+#: patterns/awards.php:2
+msgctxt "Pattern title"
+msgid "Awards"
+msgstr ""
+
+#: patterns/blog-posts.php:2
+msgctxt "Pattern title"
+msgid "Blog Posts"
+msgstr ""
+
+#: patterns/call-to-action.php:2
+msgctxt "Pattern title"
+msgid "Call to action"
+msgstr ""
+
+#: patterns/contact.php:2
+msgctxt "Pattern title"
+msgid "Contact"
+msgstr ""
+
+#: patterns/contact-2.php:2
+msgctxt "Pattern title"
+msgid "Contact #2"
+msgstr ""
+
+#: patterns/contact-newsletter.php:2
+msgctxt "Pattern title"
+msgid "Contact + Newsletter"
+msgstr ""
+
+#: patterns/contact-card-with-social-links.php:2
+msgctxt "Pattern title"
+msgid "Contact Card with Social Links"
+msgstr ""
+
+#: patterns/fullscreen-hero.php:2
+msgctxt "Pattern title"
+msgid "Fullscreen Hero"
+msgstr ""
+
+#: patterns/hero-with-2-buttons.php:2
+msgctxt "Pattern title"
+msgid "Hero with 2 Buttons"
+msgstr ""
+
+#: patterns/hero-with-button.php:2
+msgctxt "Pattern title"
+msgid "Hero with Button"
+msgstr ""
+
+#: patterns/hero-with-video-lightbox.php:2
+msgctxt "Pattern title"
+msgid "Hero with Video Lightbox"
+msgstr ""
+
+#: patterns/homepage.php:2
+msgctxt "Pattern title"
+msgid "Homepage"
+msgstr ""
+
+#: patterns/homepage-with-hero-at-the-top.php:2
+msgctxt "Pattern title"
+msgid "Homepage (with hero at the top)"
+msgstr ""
+
+#: patterns/list-of-posts.php:2
+msgctxt "Pattern title"
+msgid "List of Posts"
+msgstr ""
+
+#: patterns/portfolio.php:2
+msgctxt "Pattern title"
+msgid "Portfolio"
+msgstr ""
+
+#: patterns/pricing-table.php:2
+msgctxt "Pattern title"
+msgid "Pricing Table"
+msgstr ""
+
+#: patterns/section-with-2-buttons.php:2
+msgctxt "Pattern title"
+msgid "Section with 2 buttons"
+msgstr ""
+
+#: patterns/section-with-2-columns.php:2
+msgctxt "Pattern title"
+msgid "Section with 2 columns"
+msgstr ""
+
+#: patterns/section-with-3-columns.php:2
+msgctxt "Pattern title"
+msgid "Section with 3 columns"
+msgstr ""
+
+#: patterns/section-with-number.php:2
+msgctxt "Pattern title"
+msgid "Section with number"
+msgstr ""
+
+#: patterns/section-with-text.php:2
+msgctxt "Pattern title"
+msgid "Section with text"
+msgstr ""
+
+#: patterns/section-with-text-and-numbers.php:2
+msgctxt "Pattern title"
+msgid "Section with text and numbers"
+msgstr ""
+
+#: patterns/section-with-video-background.php:2
+msgctxt "Pattern title"
+msgid "Section with Video Background"
+msgstr ""
+
+#: patterns/services.php:2
+msgctxt "Pattern title"
+msgid "Services"
+msgstr ""
+
+#: patterns/services-2.php:2
+msgctxt "Pattern title"
+msgid "Services #2"
+msgstr ""
+
+#: patterns/social-footer-cta.php:2
+msgctxt "Pattern title"
+msgid "Social Footer CTA"
+msgstr ""
+
+#: patterns/team.php:2
+msgctxt "Pattern title"
+msgid "Team"
+msgstr ""
+
+#: patterns/testimonials.php:2
+msgctxt "Pattern title"
+msgid "Testimonials"
+msgstr ""
+
+#: inc/custom-header.php:440
+msgid "Pause background video"
+msgstr ""
+
+#: inc/common-functions.php:351
+msgid "Pingback:"
+msgstr ""
+
+#: searchform.php:19
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: inc/custom-header.php:439
+msgid "Play background video"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:214
+msgid "Post and Page text content"
+msgstr ""
+
+#: inc/template-tags.php:199
+msgid "Post author"
+msgstr ""
+
+#: comments.php:114
+msgid "Post Comment"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:32
+msgid "Post Options"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:195
+msgid "Post title"
+msgstr ""
+
+#: inc/customizer/custom-controls/font-presets/class-inspiro-customize-font-presets-control.php:35
+msgid "Presets"
+msgstr ""
+
+#: single.php:42
+msgid "Previous"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:115
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:183
+msgid "PRO"
+msgstr ""
+
+#. %s: Post title.
+#: inc/common-functions.php:185 template-parts/post/content-gallery.php:36
+#: template-parts/post/content.php:37 template-parts/post/content-audio.php:49
+#: template-parts/post/content-video.php:49
+#: template-parts/post/content-image.php:28
+#, php-format
+msgid "Read more<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#. %s: Post editor URL.
+#: template-parts/post/content-none.php:29
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: inc/common-functions.php:323
+msgid "Reply"
+msgstr ""
+
+#: comments.php:103
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: template-parts/header/header-image.php:24
+#: template-parts/header/header-image.php:25
+msgid "Scroll down to content"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-hero-config.php:155
+msgid "Scroll to Content Arrow"
+msgstr ""
+
+#: template-parts/header/search-form.php:15
+msgid "Search for:"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-header-config.php:148
+msgid "Search Icon Color"
+msgstr ""
+
+#. Search query.
+#: search.php:22
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:75
+msgid "Select a layout"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:154
+msgid ""
+"Select the header layout. The hamburger icon appears on the desktop if the "
+"Sidebar has at least one widget. On mobile devices, the main menu is "
+"displayed in the sidebar."
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:228
+msgid "Semi-Bold 600"
+msgstr ""
+
+#. %s: New slide title
+#: inc/classes/class-inspiro-theme-upgrader.php:125
+#, php-format
+msgid "Setup a new slider item with title: <strong>%s</strong>"
+msgstr ""
+
+#: inc/customizer/configs/homepage-media/class-inspiro-homepage-media-media-config.php:102
+msgid "Show Dark Overlay"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:246
+msgid "Show Search Icon"
+msgstr ""
+
+#: inc/customizer/configs/header/class-inspiro-header-area-config.php:247
+msgid "Show search icon and search form in the header"
+msgstr ""
+
+#: inc/common-functions.php:70
+msgid "Sidebar"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-sidebar-widgets-config.php:84
+msgid "Sidebar and Widgets"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-sidebar-widgets-config.php:95
+msgid "Sidebar Background"
+msgstr ""
+
+#: inc/customizer-functions.php:17
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:64
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:77
+msgid "Sidebar on the right"
+msgstr ""
+
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:72
+msgid "Single Post Layout"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:193
+msgid "Site URL"
+msgstr ""
+
+#: header.php:27
+msgid "Skip to content"
+msgstr ""
+
+#: inc/classes/class-inspiro-theme-upgrader.php:126
+msgid "Something went wrong to create a new slider item!"
+msgstr ""
+
+#: search.php:55
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: theme.json:1
+msgctxt "Space size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Space size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Space size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Space size name"
+msgid "xLarge"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Space size name"
+msgid "xSmall"
+msgstr ""
+
+#: searchform.php:20
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: inc/customizer/class-inspiro-customizer.php:473
+msgid "System Fonts"
+msgstr ""
+
+#: inc/template-tags.php:192
+msgid "Tags"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:137
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:95
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:158
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:95
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:137
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:151
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:95
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:95
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:116
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:95
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:157
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:150
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:150
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:95
+msgid "Text Transform"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:141
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:99
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:162
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:99
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:141
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:155
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:99
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:99
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:120
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:99
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:161
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:154
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:154
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:99
+msgctxt "text transform"
+msgid "Inherit"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:142
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:100
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:163
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:100
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:142
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:156
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:100
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:100
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:121
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:100
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:162
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:155
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:155
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:100
+msgctxt "text transform"
+msgid "None"
+msgstr ""
+
+#. %1$s: Inspiro theme %2$s: anchor tag open %3$s: anchor tag close
+#: inc/admin-notice.php:89
+#, php-format
+msgid ""
+"Thank you for installing %1$s Lite theme! To get started please make sure "
+"you visit the new %2$swelcome page%3$s."
+msgstr ""
+
+#: inc/customizer/configs/theme-layout/class-inspiro-theme-layout-config.php:31
+msgid "Theme Layout"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:218
+msgid "Thin 100"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-general-config.php:205
+msgid "This text appears on the Blog page."
+msgstr ""
+
+#. %s: WordPress Version.
+#: inc/back-compat.php:42 inc/back-compat.php:61 inc/back-compat.php:86
+#, php-format
+msgid ""
+"This theme requires WordPress 5.3 or newer. You are running version %s. "
+"Please upgrade."
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:90
+msgid "Three Columns"
+msgstr ""
+
+#: sidebar.php:20
+msgid "Toggle navigation"
+msgstr ""
+
+#: template-parts/navigation/navigation-primary.php:58
+msgid "Toggle sidebar &amp; navigation"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-widget-areas-config.php:86
+msgid "Two Columns"
+msgstr ""
+
+#: template-parts/header/search-form.php:16
+msgid "Type your keywords and hit Enter..."
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-panel-config.php:33
+msgid "Typography"
+msgstr ""
+
+#: inc/classes/class-inspiro-font-family-manager.php:234
+msgid "Ultra-Bold 900"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:90
+msgid ""
+"Unlock all customization and post options by upgrading to the Premium "
+"version of the theme. Disable specific elements and features, customize "
+"colors, fonts, header, footer & much more!"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-footer-config.php:135
+msgid ""
+"Unlock all customization options by upgrading to the Premium version of the "
+"theme. Customize colors, fonts, header, footer & much more!"
+msgstr ""
+
+#: inc/customizer/class-inspiro-customizer.php:280
+msgid ""
+"Unlock premium features: 7 Style Kits, Video Backgrounds, Portfolio "
+"Integration, Premium Support and much more..."
+msgstr ""
+
+#: inc/customizer/class-inspiro-customizer.php:279
+msgid "Upgrade to Inspiro Premium"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:144
+#: inc/customizer/configs/typography/class-inspiro-typo-h6-config.php:102
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:165
+#: inc/customizer/configs/typography/class-inspiro-typo-h3-config.php:102
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:144
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:158
+#: inc/customizer/configs/typography/class-inspiro-typo-h4-config.php:102
+#: inc/customizer/configs/typography/class-inspiro-typo-h1-config.php:102
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:123
+#: inc/customizer/configs/typography/class-inspiro-typo-h2-config.php:102
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:164
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:157
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:157
+#: inc/customizer/configs/typography/class-inspiro-typo-h5-config.php:102
+msgid "Uppercase"
+msgstr ""
+
+#: inc/customizer/configs/typography/class-inspiro-typo-logo-config.php:102
+#: inc/customizer/configs/typography/class-inspiro-typo-main-menu-config.php:123
+#: inc/customizer/configs/typography/class-inspiro-typo-body-config.php:102
+#: inc/customizer/configs/typography/class-inspiro-typo-mobile-menu-config.php:116
+#: inc/customizer/configs/typography/class-inspiro-typo-headings-config.php:94
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-title-config.php:122
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-desc-config.php:115
+#: inc/customizer/configs/typography/class-inspiro-typo-hero-header-button-config.php:115
+msgid "Variants"
+msgstr ""
+
+#: inc/customizer/class-inspiro-customizer.php:281
+msgid "View Inspiro Premium"
+msgstr ""
+
+#: inc/customizer/custom-controls/font-presets/class-inspiro-customize-font-presets-control.php:41
+msgid "View Presets"
+msgstr ""
+
+#. %1$s current user display name.
+#: inc/classes/class-inspiro-notice-review.php:93
+#, php-format
+msgid ""
+"We hope you are enjoying the %1$s theme! %2$sWe'd be grateful if you could "
+"take a moment to share your positive experience with others by leaving a "
+"review on WordPress.org. This helps us continue providing updates and "
+"support for this theme."
+msgstr ""
+
+#: comments.php:99
+msgid "Website:"
+msgstr ""
+
+#: inc/common-functions.php:157
+msgid "Widget area for \"Instagram widget by WPZOOM\"."
+msgstr ""
+
+#: inc/common-functions.php:144
+msgid ""
+"Widget area in the header. Install the \"Social Icons Widget by WPZOOM\" "
+"plugin and add the widget here."
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-sidebar-widgets-config.php:122
+msgid "Widget Link"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-sidebar-widgets-config.php:113
+msgid "Widget Text"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-sidebar-widgets-config.php:104
+msgid "Widget Title"
+msgstr ""
+
+#. Author of the theme
+msgid "WPZOOM"
+msgstr ""
+
+#: inc/template-tags.php:201
+msgid "Written by"
+msgstr ""
+
+#: inc/customizer/configs/logo/class-inspiro-custom-logo-text-config.php:41
+msgid "You can enter a different title without changing the Site Title"
+msgstr ""
+
+#: inc/customizer/configs/footer/class-inspiro-footer-copyright-config.php:71
+msgid ""
+"You can insert the following tags: {copyright}, {current-year}, {site-title}"
+msgstr ""
+
+#: inc/admin-notice.php:54
+msgid "You do not have the necessary permission to perform this action."
+msgstr ""
+
+#: inc/common-functions.php:337
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:89
+msgid "⚙️ You can control every detail in your theme with Inspiro Premium!"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-footer-config.php:134
+msgid "🎨 There are 68 more color & font options in Inspiro Premium!"
+msgstr ""
+
+#: inc/customizer/configs/colors/class-inspiro-color-footer-config.php:136
+msgid "👉 Unlock all customizations"
+msgstr ""
+
+#: inc/customizer/configs/blog-post/class-inspiro-post-options-config.php:91
+msgid "👉 Unlock all options and features"
+msgstr ""
