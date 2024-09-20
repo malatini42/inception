@@ -16,7 +16,7 @@ RUN		cp wp-cli.phar /usr/bin/wp
 
 COPY	script/configure.sh /tmp/configure.sh
 
-WORKDIR	/var/www/html
+WORKDIR	/var/www/html/wordpress
 
 ENTRYPOINT [ "sh", "/tmp/configure.sh" ]
 

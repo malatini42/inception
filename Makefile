@@ -31,6 +31,9 @@ unpause:
 				${DOCKER_COMPOSE} unpause
 
 clean:			down
+				rm -rf ~/Documents/inception/srcs/requirements/nginx/log/*
+				rm -rf ~/Documents/inception/srcs/requirements/mariadb/data
+				rm -rf ~/Documents/inception/srcs/requirements/wordpress/website
 				${DOCKER_COMPOSE} down -v --rmi all --remove-orphans
 
 fclean: 		clean
