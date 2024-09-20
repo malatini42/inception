@@ -1,5 +1,3 @@
-version: '3.8'
- 
 networks:
   backend:
 
@@ -7,13 +5,15 @@ services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx
-    image: img_nginx
     volumes:
-      - "~/Desktop/inception/website:/var/www/html"
+      - ~/Documents/inception/srcs/requirements/nginx/log:/var/log/nginx
+      - ~/Documents/inception/srcs/requirements/wordpress/website:/var/www/html
     networks:
       - backend
     ports:
-      - "443:443"
+      - '443:443'
+    expose:
+      - '443'
     depends_on:
       - wordpress
     restart: always
@@ -24,34 +24,34 @@ services:
       - mariadb
     build: ./requirements/wordpress
     volumes:
-      - "~/Desktop/inception/website:/var/www/html"
+      - ~/Documents/inception/srcs/requirements/wordpress/website:/var/www/html
     networks:
       - backend
-    environment: 
-      MYSQL_HOST:       ${MYSQL_HOST}
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
       WP_DATABASE_NAME: ${WP_DATABASE_NAME}
-      WP_DATABASE_USR:  ${WP_DATABASE_USR}
-      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
-      DOMAIN_NAME:      ${DOMAIN_NAME}
-      WP_TITLE:         ${WP_TITLE}
-      WP_ADMIN_USR:     ${WP_ADMIN_USR}
-      WP_ADMIN_PWD:     ${WP_ADMIN_PWD}
-      WP_ADMIN_EMAIL:   ${WP_ADMIN_EMAIL}
-      WP_USR:           ${WP_USR}
-      WP_PWD:           ${WP_PWD}
-      WP_EMAIL:         ${WP_EMAIL}
+      WP_DATABASE_USR: ${WP_DATABASE_USR}
+      WP_DATABASE_PWD: ${WP_DATABASE_PWD}
+      DOMAIN_NAME: ${DOMAIN_NAME}
+      WP_TITLE: ${WP_TITLE}
+      WP_ADMIN_USR: ${WP_ADMIN_USR}
+      WP_ADMIN_PWD: ${WP_ADMIN_PWD}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+      WP_USR: ${WP_USR}
+      WP_PWD: ${WP_PWD}
+      WP_EMAIL: ${WP_EMAIL}
     restart: always
 
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
     volumes:
-      - "~/Desktop/inception/mariadb:/var/lib/mysql"
+      - ~/Documents/inception/srcs/requirements/mariadb/data:/var/lib/mysql
     networks:
       - backend
     environment:
-      MYSQL_ROOT_PWD:   ${MYSQL_ROOT_PWD}
+      MYSQL_ROOT_PWD: ${MYSQL_ROOT_PWD}
       WP_DATABASE_NAME: ${WP_DATABASE_NAME}
-      WP_DATABASE_USR:  ${WP_DATABASE_USR}
-      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+      WP_DATABASE_USR: ${WP_DATABASE_USR}
+      WP_DATABASE_PWD: ${WP_DATABASE_PWD}
     restart: always
