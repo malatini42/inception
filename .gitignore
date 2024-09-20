@@ -1,3 +1,3 @@
 ./srcs/requirements/nginx/log/*
-./srcs/requirements/data
-./srcs/requirements/website
+./srcs/requirements/mariadb/data
+./srcs/requirements/wordpress/website
